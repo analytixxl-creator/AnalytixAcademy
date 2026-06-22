@@ -1,0 +1,2667 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Analytix — iGaming Education Platform. First course free | UA · RO · MD</title>
+  <meta name="description" content="Analytix — systems-thinking education about iGaming for Ukraine, Romania and Moldova. RTP, House Edge, volatility, operator business logic. First course free." />
+  <meta name="keywords" content="iGaming, навчання iGaming, iGaming курси, RTP, House Edge, volatility, odds, variance, аналітика iGaming, казино аналітика, iGaming освіта, Analytix, iGaming Україна, iGaming Romania, iGaming Moldova, curs iGaming, educatie iGaming, обучение iGaming, симулятор слоту, букмекер, iGaming career, iGaming jobs Romania, iGaming Chisinau, iGaming Bucuresti, iGaming Kyiv" />
+  <meta name="author" content="Analytix" />
+  <meta name="publisher" content="Analytix Education" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="7 days" />
+  <meta http-equiv="content-language" content="uk, en, ro, ru" />
+
+  <!-- Geo targeting: Ukraine, Romania, Moldova -->
+  <meta name="geo.region" content="UA" />
+  <meta name="geo.placename" content="Kyiv, Bucuresti, Chisinau" />
+  <meta name="ICBM" content="50.4501, 30.5234" />
+  <meta name="target_country" content="UA, RO, MD" />
+
+  <link rel="canonical" href="https://analytix.academy/" />
+  <link rel="alternate" hreflang="uk" href="https://analytix.academy/" />
+  <link rel="alternate" hreflang="uk-UA" href="https://analytix.academy/" />
+  <link rel="alternate" hreflang="en" href="https://analytix.academy/en/" />
+  <link rel="alternate" hreflang="ro" href="https://analytix.academy/ro/" />
+  <link rel="alternate" hreflang="ro-RO" href="https://analytix.academy/ro/" />
+  <link rel="alternate" hreflang="ro-MD" href="https://analytix.academy/ro-md/" />
+  <link rel="alternate" hreflang="ru" href="https://analytix.academy/ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://analytix.academy/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Analytix" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="uk_UA" />
+  <meta property="og:locale:alternate" content="ro_RO" />
+  <meta property="og:locale:alternate" content="ro_MD" />
+  <meta property="og:locale:alternate" content="ru_UA" />
+  <meta property="og:url" content="https://analytix.academy/" />
+  <meta property="og:title" content="Analytix — iGaming as a system. First course free" />
+  <meta property="og:description" content="Systems-thinking education about iGaming for Ukraine, Romania and Moldova. 4 modules, 20 lessons on RTP, House Edge, volatility and operator business logic. Interactive slot simulator, real cases, career track in the industry. First course — free. We don't teach gambling — we explain how iGaming works from the inside." />
+  <meta property="og:image" content="https://analytix.academy/og-image.png" />
+  <meta property="og:image:secure_url" content="https://analytix.academy/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Analytix — освітня платформа про iGaming" />
+  <meta property="article:author" content="Analytix" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Analytix — iGaming as a system. First course free" />
+  <meta name="twitter:description" content="Systems-thinking education about iGaming: 4 modules, 20 lessons on RTP, House Edge, volatility, operator business logic. Slot simulator, cases, career in the industry. UA · RO · MD. First course — free." />
+  <meta name="twitter:image" content="https://analytix.academy/og-image.png" />
+  <meta name="twitter:image:alt" content="Analytix — освітня платформа про iGaming" />
+
+  <!-- AI / LLM crawler hints -->
+  <meta name="ai-content-declaration" content="Original educational content about iGaming, RTP, House Edge and operator business logic. Free to cite with attribution to Analytix (https://analytix.academy/)." />
+  <link rel="alternate" type="text/markdown" title="LLM-friendly site overview" href="/llms.txt" />
+  <link rel="alternate" type="text/markdown" title="LLM-friendly full content" href="/llms-full.txt" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://kwiga.com" crossorigin />
+  <link rel="dns-prefetch" href="https://kwiga.com" />
+  <style>
+    /* ANALYTIX REFACТOR NOTE: visual styles preserved; edit content via data-i18n keys where possible. */
+    :root{
+      --bg:#0f172a;
+      --bg-2:#111827;
+      --surface:rgba(255,255,255,.04);
+      --surface-2:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.10);
+      --text:#e5e7eb;
+      --muted:#a0a7b8;
+      --primary:#00ffa3;
+      --primary-dark:#00d98c;
+      --secondary:#2d7ff9;
+      --card:#1e293b;
+      --shadow:0 20px 60px rgba(0,255,163,.08);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(45,127,249,.18), transparent 28%),
+        radial-gradient(circle at 80% 15%, rgba(0,255,163,.14), transparent 26%),
+        radial-gradient(circle at 70% 80%, rgba(45,127,249,.12), transparent 24%),
+        linear-gradient(180deg,#111827 0%,#0f172a 100%);
+      min-height:100vh;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:40px 40px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 80%);
+      opacity:.22;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 40px), var(--max)); margin:0 auto}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:blur(12px);
+      background:rgba(15,23,42,.68);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+      padding:18px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.08em}
+    .brand-mark{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(0,255,163,.25), rgba(45,127,249,.18));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      color:var(--primary);
+      font-size:18px;
+    }
+    .nav-links{display:flex; gap:24px; color:var(--muted); font-size:14px}
+    .nav-right{display:flex; align-items:center; gap:12px}
+    .lang-toggle{
+      display:inline-flex; gap:6px; padding:4px; border-radius:12px;
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08)
+    }
+    .lang-btn{
+      background:transparent; color:var(--muted); border:0; cursor:pointer;
+      padding:8px 10px; border-radius:8px; font-weight:700
+    }
+    .lang-btn.active{background:rgba(255,255,255,.08); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 24px; border-radius:12px; font-weight:700;
+      border:1px solid transparent; transition:.2s ease; cursor:pointer;
+      font-family:inherit; font-size:16px; line-height:1.2;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, rgba(0,255,163,.95), rgba(120,255,210,.92));
+      color:#04120d; box-shadow:0 10px 30px rgba(0,255,163,.18);
+    }
+    .btn-primary:hover{transform:translateY(-1px); background:linear-gradient(135deg, var(--primary-dark), #7fffd4)}
+    .btn-secondary{
+      background:rgba(255,255,255,.02); color:var(--text);
+      border-color:rgba(255,255,255,.10); backdrop-filter:blur(8px)
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,.05)}
+    .hero{padding:88px 0 72px}
+    .hero-grid,.product-grid,.sim-grid{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:center
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 14px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03);
+      color:var(--muted); font-size:13px; margin-bottom:18px
+    }
+    h1{
+      margin:0 0 18px; font-size:clamp(42px,6vw,68px);
+      line-height:1.05; letter-spacing:-.03em; max-width:10ch
+    }
+    .accent{color:var(--primary)}
+    .lead{
+      margin:0 0 28px; font-size:20px; line-height:1.6;
+      color:var(--muted); max-width:620px
+    }
+    .actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px}
+    .microproof{display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px}
+    .microproof span::before{content:"•"; color:var(--primary); margin-right:8px}
+    .hero-card,.glass-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--border); border-radius:24px; backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:22px; position:relative; overflow:hidden; min-height:420px}
+    .hero-card::after{
+      content:""; position:absolute; inset:auto -10% -10% auto; width:280px; height:280px;
+      background:radial-gradient(circle, rgba(0,255,163,.16), transparent 65%); filter:blur(20px)
+    }
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:18px}
+    .stat,.mini-card{
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);
+      border-radius:16px; padding:14px
+    }
+    .stat-label,.mini-label{color:var(--muted); font-size:12px; margin-bottom:8px}
+    .stat-value,.mini-value{font-size:28px; font-weight:800}
+    .stat-value.small{font-size:20px}
+    .chart,.big-chart{
+      border-radius:18px; border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(45,127,249,.08), rgba(0,255,163,.05));
+      background-size:32px 32px, 32px 32px, cover;
+      position:relative; overflow:hidden
+    }
+    .chart{height:240px}
+    .chart svg,.big-chart svg{position:absolute; inset:0; width:100%; height:100%}
+    section{padding:34px 0}
+    .section-title{
+      font-size:clamp(30px,4vw,46px); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em
+    }
+    .section-sub{
+      font-size:18px; line-height:1.7; color:var(--muted); margin:0 0 28px; max-width:760px
+    }
+    .value-grid,.audience-grid,.courses-grid,.faq-grid{display:grid; gap:20px}
+    .value-grid,.audience-grid,.courses-grid{grid-template-columns:repeat(4,1fr)}
+    .faq-grid{grid-template-columns:repeat(2,1fr)}
+    .value-card,.audience-card,.course-card,.faq-card{padding:26px}
+    .icon{
+      width:46px; height:46px; border-radius:14px; display:grid; place-items:center;
+      color:var(--primary); background:linear-gradient(135deg, rgba(0,255,163,.12), rgba(45,127,249,.10));
+      border:1px solid rgba(255,255,255,.08); margin-bottom:18px; font-size:22px
+    }
+    .card-title{font-size:24px; margin:0 0 10px}
+    .card-text{margin:0; color:var(--muted); line-height:1.7; font-size:15px}
+    .feature-list{list-style:none; padding:0; margin:22px 0 0; display:grid; gap:14px}
+    .feature-list li{color:var(--text); font-size:18px; display:flex; align-items:flex-start; gap:12px}
+    .feature-list li::before{content:"✓"; color:var(--primary); font-weight:800; line-height:1.2}
+    .dashboard,.sim-panel{
+      padding:18px; border-radius:24px; background:rgba(7,13,24,.86);
+      border:1px solid rgba(255,255,255,.10); box-shadow:var(--shadow)
+    }
+    .dashboard{min-height:420px}
+    .dashboard-top{display:flex; gap:12px; margin-bottom:18px; align-items:stretch}
+    .sidebar{
+      width:150px; border-radius:18px; background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08); padding:16px; color:var(--muted);
+      font-size:13px; display:grid; gap:12px
+    }
+    .sidebar .active{
+      color:var(--text); background:rgba(0,255,163,.10); border-radius:10px;
+      padding:8px 10px; border:1px solid rgba(0,255,163,.18)
+    }
+    .dash-main{flex:1; display:grid; gap:12px}
+    .dash-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .big-chart{height:220px}
+    .simulator-box{padding:22px}
+    .simulator-box .btn{margin-top:16px;width:100%}
+    .slot{transition:.18s ease; user-select:none}
+    .slot.spinning{transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,255,163,.12)}
+    .sim-message{
+      margin:14px 0 0;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      min-height:46px;
+    }
+    .sim-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .sim-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .sim-actions .btn{margin-top:0;width:100%}
+    .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none!important}
+    .sim-control{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+    .sim-control span{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}
+    .sim-control strong{font-size:18px;color:var(--text)}
+
+    .sim-row{display:flex; justify-content:space-between; gap:12px; margin-bottom:16px; color:var(--muted); font-size:14px}
+    .range{height:8px; border-radius:999px; background:rgba(255,255,255,.08); position:relative; overflow:hidden}
+    .range::after{
+      content:""; position:absolute; inset:0 24% 0 0;
+      background:linear-gradient(90deg, var(--secondary), var(--primary)); border-radius:inherit
+    }
+    .three{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .slot{
+      height:92px; border-radius:16px; display:grid; place-items:center;
+      font-size:34px; color:var(--primary); background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08)
+    }
+    .course-meta{
+      display:flex; justify-content:space-between; gap:12px;
+      margin-bottom:18px; color:var(--muted); font-size:13px
+    }
+    .faq-q{font-size:18px; margin:0 0 10px}
+    .cta{padding:80px 0 100px; text-align:center}
+    .cta-box{
+      padding:54px 28px; border-radius:28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0,255,163,.10), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10); box-shadow:var(--shadow)
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.06em;
+      color:var(--text);
+      text-decoration:none;
+    }
+    .brand-mark{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(0,255,163,.12), rgba(45,127,249,.08));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 34px rgba(0,255,163,.10);
+      flex:0 0 auto;
+    }
+    .brand-mark svg{
+      width:25px;
+      height:25px;
+      fill:none;
+      stroke:url(#analytixLogoGradient);
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      filter:drop-shadow(0 0 8px rgba(0,255,163,.22));
+    }
+    .brand-word{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.12em;
+      line-height:1;
+    }
+    .brand-word .x{
+      color:var(--primary);
+      text-shadow:0 0 18px rgba(0,255,163,.22);
+    }
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+
+    .lms-form{
+      max-width:720px;
+      margin:26px auto 0;
+      display:grid;
+      gap:12px;
+      text-align:left;
+    }
+    .lms-form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .lms-input{
+      width:100%;
+      padding:15px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      font-size:15px;
+      outline:none;
+    }
+    .lms-input:focus{
+      border-color:rgba(0,255,163,.42);
+      box-shadow:0 0 0 4px rgba(0,255,163,.08);
+    }
+    .lms-form-note{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+      margin:0;
+      text-align:center;
+    }
+    .lms-form-message{
+      display:none;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,163,.16);
+      background:rgba(0,255,163,.075);
+      color:var(--primary);
+      font-size:14px;
+      line-height:1.5;
+      text-align:left;
+    }
+    .lms-honeypot{position:absolute;left:-9999px;opacity:0}
+    .lms-widget-wrap{max-width:640px;margin:0 auto;text-align:center}
+    .lms-widget-wrap iframe{width:100%;border:0;display:block;border-radius:14px}
+
+    .footer-stats{
+      margin:0 0 34px;
+      padding:28px 34px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.022));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 18px 60px rgba(0,0,0,.22);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      overflow:hidden;
+    }
+    .footer-stat{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      padding:8px 22px;
+      position:relative;
+    }
+    .footer-stat:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      right:0;
+      top:10%;
+      height:80%;
+      width:1px;
+      background:rgba(255,255,255,.08);
+    }
+    .footer-stat-icon{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      color:var(--primary);
+      flex:0 0 auto;
+    }
+    .footer-stat-icon svg{
+      width:38px;
+      height:38px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.9;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .footer-stat-value{
+      font-size:28px;
+      line-height:1;
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.02em;
+      margin-bottom:8px;
+    }
+    .footer-stat-label{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.35;
+    }
+    .footer-main{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+    }
+    .footer-links a:hover{color:var(--primary)}
+    .footer{
+      padding:34px 0 44px; color:var(--muted); font-size:14px;
+      border-top:1px solid rgba(255,255,255,.06)
+    }
+
+    .comparison-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .comparison-card,.tension-box{
+      padding:26px;border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--border); box-shadow:var(--shadow)
+    }
+    .comparison-card h3{font-size:22px;margin:0 0 14px}
+    .comparison-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .comparison-list li{
+      padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);color:var(--text);font-size:15px;line-height:1.6
+    }
+    .comparison-list li::before{font-weight:800;margin-right:10px}
+    .comparison-card.player li::before{content:'—'; color:#fda4af}
+    .comparison-card.analyst li::before{content:'✓'; color:var(--primary)}
+    .tension-box{margin-top:20px;text-align:center}
+    .tension-box strong{display:block;font-size:24px;line-height:1.35}
+
+
+    .course-tabs{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:20px;margin-top:26px}
+    .course-tab-card{position:relative;overflow:hidden;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
+    .course-tab-card.active{border-color:rgba(0,255,163,.34);box-shadow:0 24px 70px rgba(0,255,163,.10)}
+    .course-tab-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+    .course-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:rgba(0,255,163,.08);border:1px solid rgba(0,255,163,.18);color:var(--primary);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .course-status{color:var(--muted);font-size:12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.03)}
+    .course-tab-card h3{font-size:26px;line-height:1.08;margin:0 0 12px;letter-spacing:-.02em}
+    .course-tab-card p{color:var(--muted);line-height:1.65;margin:0 0 20px;font-size:15px}
+    .course-tab-meta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .course-tab-meta span{font-size:12px;color:var(--muted);padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .course-open-btn{width:100%;margin-top:auto}
+    .course-placeholder{opacity:.62}
+    .course-program{display:none;margin-top:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:28px}
+    .course-program.visible{display:block}
+    .program-hero{padding:34px;border-radius:28px;background:linear-gradient(135deg, rgba(0,255,163,.10), rgba(45,127,249,.08));border:1px solid rgba(255,255,255,.10);margin-bottom:24px}
+    .program-hero h3{font-size:clamp(30px,4vw,48px);line-height:1.02;letter-spacing:-.04em;margin:12px 0 14px}
+    .program-hero p{max-width:760px;color:var(--muted);font-size:17px;line-height:1.7;margin:0}
+    .program-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+    .program-stat{padding:18px;border-radius:16px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.08)}
+    .program-stat strong{display:block;font-size:25px;color:var(--text)}
+    .program-stat span{font-size:13px;color:var(--muted)}
+    .program-modules{display:grid;gap:18px}
+    .program-module{overflow:hidden}
+    .program-module-head{padding:22px 24px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(0,255,163,.04))}
+    .program-module-kicker{color:var(--primary);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+    .program-module-head h4{font-size:26px;margin:0 0 8px;letter-spacing:-.02em}
+    .program-module-head p{margin:0;color:var(--muted);line-height:1.6}
+    .program-lessons{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.08)}
+    .program-lesson{background:rgba(7,13,24,.86);padding:18px;min-height:180px}
+    .program-lesson small{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px}
+    .program-lesson strong{display:block;font-size:18px;line-height:1.16;margin-bottom:10px}
+    .program-lesson p{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 10px}
+    .program-idea{padding-top:10px;border-top:1px solid rgba(255,255,255,.08);color:var(--text)!important}
+    .program-bottom{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+    @media (max-width:1100px){.course-tabs{grid-template-columns:1fr 1fr}.program-lessons{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:820px){.course-tabs,.program-stats,.program-bottom{grid-template-columns:1fr}.program-lessons{grid-template-columns:1fr}.program-hero{padding:24px}.program-module-head{padding:20px}.program-lesson{min-height:auto}}
+    .fade-up{opacity:0; transform:translateY(18px); transition:.7s ease}
+    .fade-up.visible{opacity:1; transform:none}
+    @media (max-width:1100px){
+      .hero-grid,.product-grid,.sim-grid,.value-grid,.audience-grid,.courses-grid,.faq-grid,.comparison-grid{grid-template-columns:1fr 1fr}
+      .hero-card{min-height:360px}
+    }
+    @media (max-width:820px){
+      .nav-links{display:none}
+      .hero-grid,.product-grid,.sim-grid,.value-grid,.audience-grid,.courses-grid,.faq-grid,.comparison-grid,.dashboard-top,.dash-row,.three{
+        grid-template-columns:1fr; display:grid
+      }
+      .sidebar{width:auto}
+      h1{max-width:none}
+      .actions{flex-direction:column; align-items:stretch}
+      .btn{width:100%}
+      .hero{padding-top:48px}
+      .stats{grid-template-columns:1fr}
+      .container{width:min(calc(100% - 24px), var(--max))}
+      .hero-card,.glass-card,.dashboard,.sim-panel,.cta-box{border-radius:20px}
+      .section-title{font-size:34px}
+      .section-sub{font-size:16px}
+      .brand{font-size:14px}
+      .nav-inner{padding:14px 0}
+      .cta{padding-bottom:110px}
+      .mobile-sticky-cta{position:fixed; left:12px; right:12px; bottom:12px; z-index:30; display:block}
+      .mobile-sticky-cta .btn{width:100%; box-shadow:0 14px 40px rgba(0,255,163,.18)}
+      .footer-stats{grid-template-columns:1fr; padding:18px; gap:10px}
+      .footer-stat{justify-content:flex-start; padding:14px 4px}
+      .footer-stat:not(:last-child)::after{display:none}
+      .footer-stat-value{font-size:24px}
+      .footer-main{padding-bottom:56px}
+      .lms-form-grid{grid-template-columns:1fr}
+    }
+    @media (min-width:821px){.mobile-sticky-cta{display:none}}
+
+    #course-1{display:none;padding:34px 0 80px}
+    body.viewing-course #course-1{display:block}
+    body.viewing-course header.hero,
+    body.viewing-course section:not(#course-1),
+    body.viewing-course .cta,
+    body.viewing-course .footer{display:none!important}
+    body.viewing-course .mobile-sticky-cta{display:none!important}
+
+    /* ========== Lead-capture modal (3 steps) ========== */
+    .lead-modal-overlay{
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(7,13,24,.92);
+      backdrop-filter:blur(10px);
+      display:none; align-items:center; justify-content:center;
+      padding:20px;
+      animation:leadFadeIn .25s ease both;
+    }
+    .lead-modal-overlay.open{display:flex}
+    @keyframes leadFadeIn{from{opacity:0}to{opacity:1}}
+    .lead-modal-card{
+      width:100%; max-width:580px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0,255,163,.10), transparent 45%),
+        linear-gradient(180deg, rgba(30,41,59,.96), rgba(15,23,42,.96));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      padding:38px 30px 32px;
+      position:relative;
+      box-shadow:0 30px 90px rgba(0,255,163,.12), 0 10px 40px rgba(0,0,0,.5);
+      max-height:90vh;
+      overflow-y:auto;
+    }
+    .lead-modal-card.lead-modal-card-wide{max-width:840px}
+    .lead-modal-close{
+      position:absolute; top:14px; right:14px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      width:36px; height:36px; border-radius:50%;
+      color:var(--muted); cursor:pointer;
+      display:grid; place-items:center;
+      font-size:18px; line-height:1; padding:0;
+      transition:.2s ease;
+    }
+    .lead-modal-close:hover{background:rgba(255,255,255,.10); color:var(--text)}
+    .lead-modal-step{display:none}
+    .lead-modal-step.active{display:block}
+    .lead-modal-title{
+      font-size:26px; line-height:1.2; letter-spacing:-.02em;
+      margin:0 0 10px; color:var(--text); font-weight:800;
+    }
+    .lead-modal-sub{
+      font-size:15px; color:var(--muted); line-height:1.6;
+      margin:0 0 24px;
+    }
+    /* Step 1: form */
+    .lead-form{display:grid; gap:14px}
+    .lead-form-field{display:grid; gap:8px}
+    .lead-form-field label{
+      color:var(--muted); font-size:13px;
+      letter-spacing:.04em; text-transform:uppercase; font-weight:700;
+    }
+    .lead-form-field input{
+      width:100%; padding:14px 16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:12px;
+      color:var(--text); font-size:16px;
+      font-family:inherit;
+      transition:.2s ease;
+    }
+    .lead-form-field input:focus{
+      outline:0; border-color:rgba(0,255,163,.5);
+      background:rgba(255,255,255,.06);
+      box-shadow:0 0 0 3px rgba(0,255,163,.12);
+    }
+    .lead-form-field input::placeholder{color:rgba(160,167,184,.5)}
+    .lead-form-error{
+      color:#fda4af; font-size:13px; margin:0 0 4px;
+      display:none;
+    }
+    .lead-form-error.show{display:block}
+    .lead-form .btn{width:100%; margin-top:8px}
+    .lead-form-note{
+      color:var(--muted); font-size:12px; line-height:1.5;
+      margin:14px 0 0; text-align:center;
+    }
+    /* Step 2: video */
+    .lead-video-wrap{
+      position:relative; width:100%;
+      aspect-ratio:16 / 9;
+      background:#000;
+      border-radius:14px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      margin:0 0 18px;
+    }
+    .lead-video-wrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%; border:0;
+    }
+    .lead-video-progress{
+      color:var(--muted); font-size:13px;
+      text-align:center; margin:0 0 14px;
+      min-height:18px;
+    }
+    .lead-video-progress.ready{color:var(--primary); font-weight:700}
+    .lead-video-cta{display:grid; gap:10px}
+    .lead-video-cta .btn{width:100%}
+    .lead-video-cta .btn[disabled]{opacity:.55; cursor:not-allowed}
+    .lead-modal-back{
+      background:transparent; border:0; color:var(--muted);
+      font-size:13px; text-align:center; padding:8px;
+      cursor:pointer; margin-top:6px;
+      text-decoration:underline; text-underline-offset:3px;
+    }
+    .lead-modal-back:hover{color:var(--text)}
+    /* Step 3: post-video confirmation */
+    .lead-final-mark{
+      width:64px; height:64px; border-radius:50%;
+      background:linear-gradient(135deg, rgba(0,255,163,.25), rgba(45,127,249,.15));
+      border:1px solid rgba(0,255,163,.35);
+      display:grid; place-items:center;
+      color:var(--primary); font-size:32px;
+      margin:0 auto 20px;
+    }
+    @media (max-width:560px){
+      .lead-modal-card{padding:30px 20px 24px; border-radius:18px}
+      .lead-modal-title{font-size:22px}
+      .lead-modal-sub{font-size:14px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["EducationalOrganization", "Organization"],
+        "@id": "https://analytix.academy/#organization",
+        "name": "Analytix",
+        "alternateName": ["Analytix Education", "Analytix iGaming"],
+        "url": "https://analytix.academy/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://analytix.academy/og-image.png",
+          "width": 1200,
+          "height": 630
+        },
+        "image": "https://analytix.academy/og-image.png",
+        "description": "Освітня платформа про iGaming: RTP, ймовірності, House Edge, аналітика, бізнес-логіка операторів. Курси, симулятори і практика для майбутніх iGaming-фахівців.",
+        "slogan": "iGaming як система. Не теорія — інструмент.",
+        "areaServed": [
+          { "@type": "Country", "name": "Ukraine", "@id": "https://www.wikidata.org/wiki/Q212" },
+          { "@type": "Country", "name": "Romania", "@id": "https://www.wikidata.org/wiki/Q218" },
+          { "@type": "Country", "name": "Moldova", "@id": "https://www.wikidata.org/wiki/Q217" }
+        ],
+        "knowsLanguage": ["uk", "en", "ro", "ru"],
+        "knowsAbout": ["iGaming", "RTP (Return to Player)", "House Edge", "Volatility", "Probability", "Variance", "Casino mathematics", "Sportsbook analytics", "Player behavior", "Retention", "Lifetime Value", "iGaming product analytics"],
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://analytix.academy/#website",
+        "url": "https://analytix.academy/",
+        "name": "Analytix",
+        "description": "Освітня платформа про iGaming: RTP, ймовірності, House Edge, аналітика.",
+        "publisher": { "@id": "https://analytix.academy/#organization" },
+        "inLanguage": ["uk", "en", "ro", "ru"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://analytix.academy/#webpage",
+        "url": "https://analytix.academy/",
+        "name": "Analytix — освітня платформа про iGaming",
+        "isPartOf": { "@id": "https://analytix.academy/#website" },
+        "about": { "@id": "https://analytix.academy/#organization" },
+        "inLanguage": "en",
+        "primaryImageOfPage": "https://analytix.academy/og-image.png",
+        "datePublished": "2026-01-15",
+        "dateModified": "2026-05-01"
+      },
+      {
+        "@type": "Course",
+        "@id": "https://analytix.academy/#course-1",
+        "name": "Вступ до iGaming: як реально працює система",
+        "description": "Базовий курс про математику гри, економіку iGaming, продуктову логіку та системне мислення. 4 модулі, 20 структурованих уроків про RTP, House Edge, variance, retention, CRM, LTV та системне мислення.",
+        "provider": { "@id": "https://analytix.academy/#organization" },
+        "educationalLevel": "Foundation",
+        "courseCode": "ANX-1",
+        "inLanguage": ["uk", "en"],
+        "isAccessibleForFree": false,
+        "teaches": [
+          "Математична логіка гри: RTP, House Edge, variance",
+          "Економіка iGaming: бонуси, retention, повторні депозити",
+          "Продуктова архітектура iGaming-платформи",
+          "Системне мислення замість емоційного"
+        ],
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "courseWorkload": "PT20H",
+          "inLanguage": "uk"
+        },
+        "offers": {
+          "@type": "Offer",
+          "category": "online education",
+          "availability": "https://schema.org/InStock",
+          "areaServed": ["UA", "RO", "MD"]
+        },
+        "syllabusSections": [
+          {
+            "@type": "Syllabus",
+            "name": "Module 1 · Foundations — Як влаштована математика гри",
+            "description": "Randomness vs Control, RTP, House Edge, Variance, Gambler's Fallacy"
+          },
+          {
+            "@type": "Syllabus",
+            "name": "Module 2 · Game Economics — Як заробляє iGaming",
+            "description": "Bonus mechanics, VIP systems, Retention logic, Deposit psychology, Loss recovery trap"
+          },
+          {
+            "@type": "Syllabus",
+            "name": "Module 3 · Product & System Design — Як система будується зсередини",
+            "description": "Game provider logic, Risk & fraud, CRM & segmentation, Affiliate model, Lifetime value"
+          },
+          {
+            "@type": "Syllabus",
+            "name": "Module 4 · Strategic Thinking — Як мислити не як гравець",
+            "description": "System thinking, Probability discipline, Emotional detachment, Decision architecture, Final framework"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Курси Analytix",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": 3,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://analytix.academy/#course-1", "item": { "@id": "https://analytix.academy/#course-1" } },
+          { "@type": "ListItem", "position": 2, "name": "RTP, Odds & Probability", "description": "Поглиблений курс про ймовірності, математичну дистанцію, RTP-моделі та аналітику результатів. У розробці." },
+          { "@type": "ListItem", "position": 3, "name": "iGaming Product & Analytics", "description": "Практичний курс про метрики, CRM, сегментацію, retention, LTV та продуктову аналітику. У розробці." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://analytix.academy/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Для кого ця платформа?", "acceptedAnswer": { "@type": "Answer", "text": "Для новачків, тих, хто хоче працювати в iGaming, і тих, хто хоче розібратися в системі професійно. Платформа працює для аудиторії з України, Румунії та Молдови." } },
+          { "@type": "Question", "name": "Це вчить грати?", "acceptedAnswer": { "@type": "Answer", "text": "Ні. Analytix не вчить грати чи обігравати систему. Платформа пояснює, як iGaming працює з точки зору математики, продукту й поведінки користувача." } },
+          { "@type": "Question", "name": "Чи потрібен досвід?", "acceptedAnswer": { "@type": "Answer", "text": "Ні. Базовий трек побудований так, щоб почати з нуля і поступово перейти до складніших тем." } },
+          { "@type": "Question", "name": "Що я отримаю після проходження?", "acceptedAnswer": { "@type": "Answer", "text": "Розуміння індустрії, практику на симуляторах, фундамент для подальшого навчання або входу в iGaming як аналітик, продакт-менеджер або CRM-спеціаліст." } },
+          { "@type": "Question", "name": "Що таке RTP?", "acceptedAnswer": { "@type": "Answer", "text": "RTP (Return to Player) — це статистичний показник того, який відсоток ставок казино-гра повертає гравцям у середньому на нескінченній дистанції. Наприклад, RTP 96% означає, що з кожних 100 одиниць ставки гра повертає в середньому 96 одиниць гравцеві за дуже велику кількість раундів. Це не гарантія для окремої сесії — це статистика системи." } },
+          { "@type": "Question", "name": "Що таке House Edge?", "acceptedAnswer": { "@type": "Answer", "text": "House Edge — математична перевага казино, яка є зворотною стороною RTP. Якщо RTP гри 96%, то House Edge становить 4%. Це частка ставок, яку оператор статистично залишає собі. На дистанції саме House Edge формує прибуток iGaming-бізнесу." } },
+          { "@type": "Question", "name": "Що таке volatility у iGaming?", "acceptedAnswer": { "@type": "Answer", "text": "Volatility (волатильність, дисперсія) — характеристика гри, яка показує, наскільки розкидані результати навколо середнього. У слотах із високою volatility виграші рідкісні, але великі. У слотах із низькою volatility — часті, але дрібні. Volatility пояснює, чому короткі сесії можуть давати екстремальні відхилення від RTP." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://analytix.academy/" },
+          { "@type": "ListItem", "position": 2, "name": "Курси", "item": "https://analytix.academy/#courses" },
+          { "@type": "ListItem", "position": 3, "name": "Курс 1: Вступ до iGaming", "item": "https://analytix.academy/#course-1" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav" aria-label="Основна навігація">
+    <div class="container nav-inner">
+      <a class="brand" href="#" data-home-link aria-label="Analytix Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="analytixLogoGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1EEBFF"/>
+                <stop offset="100%" stop-color="#8DFF82"/>
+              </linearGradient>
+            </defs>
+            <path d="M5 5 L10.8 10.8"></path>
+            <path d="M13.2 13.2 L19 19"></path>
+            <path d="M19 5 L13.2 10.8"></path>
+            <path d="M10.8 13.2 L5 19"></path>
+            <circle cx="5" cy="5" r="1.35"></circle>
+            <circle cx="19" cy="5" r="1.35"></circle>
+            <circle cx="5" cy="19" r="1.35"></circle>
+            <circle cx="19" cy="19" r="1.35"></circle>
+          </svg>
+        </span>
+        <span class="brand-word">ANALYTI<span class="x">X</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">Про платформу</a>
+        <a href="#courses" data-i18n="nav_courses">Курси</a>
+        <a href="#simulator" data-i18n="nav_sim">Симулятор</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Вибір мови / Language selector">
+          <button type="button" class="lang-btn" data-lang="uk" aria-label="Українська мова" aria-pressed="false">UA</button>
+          <button type="button" class="lang-btn active" data-lang="en" aria-label="English language" aria-pressed="true">EN</button>
+        </div>
+        <button type="button" class="btn btn-primary" data-lead-trigger="121766" utm_source="analytix_site" utm_medium="cta" utm_campaign="lms_registration" utm_content="nav_top" data-i18n="nav_cta">Пройти демо курс</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero fade-up">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow" data-i18n="hero_eyebrow">Освітня платформа про iGaming</div>
+        <h1 data-i18n="hero_title">iGaming — це не гра.<br><span class="accent">Це система, яку більшість не бачить.</span></h1>
+        <p class="lead" data-i18n="hero_lead">Analytix показує, як насправді працюють RTP, volatility, House Edge і логіка прибутку — так, як її бачать оператори зсередини.</p>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" data-lead-trigger="121766" utm_source="analytix_site" utm_medium="cta" utm_campaign="lms_registration" utm_content="hero_primary" data-i18n="hero_btn_1">Пройти демо курс</button>
+          <a class="btn btn-secondary" href="#simulator" data-i18n="hero_btn_2">Спробувати симулятор</a>
+        </div>
+        <div class="microproof">
+          <span data-i18n="proof_1">Без води</span>
+          <span data-i18n="proof_2">Практика</span>
+          <span data-i18n="proof_3">Реальні механіки індустрії</span><span data-i18n="proof_4">Навик, за який платять в iGaming</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="stats">
+          <div class="stat"><div class="stat-label">RTP</div><div class="stat-value">96.08%</div></div>
+          <div class="stat"><div class="stat-label" data-i18n="stat_vol">Волатильність</div><div class="stat-value small">HIGH</div></div>
+          <div class="stat"><div class="stat-label">Hit Rate</div><div class="stat-value">13.27%</div></div>
+        </div>
+        <div class="chart">
+          <svg viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2D7FF9"/><stop offset="100%" stop-color="#00FFA3"/></linearGradient></defs>
+            <path d="M0,240 C80,210 120,220 180,190 C230,165 260,180 320,155 C390,126 430,148 500,118 C565,90 605,95 670,70 C720,50 760,58 800,24" fill="none" stroke="url(#lineGradient)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M0,240 C80,210 120,220 180,190 C230,165 260,180 320,155 C390,126 430,148 500,118 C565,90 605,95 670,70 C720,50 760,58 800,24 L800,300 L0,300 Z" fill="rgba(0,255,163,0.08)" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="comparison" class="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-i18n="cmp_title">Гравець бачить хаос. Система має логіку.</h2>
+      <p class="section-sub" data-i18n="cmp_sub">Одна й та сама індустрія виглядає по-різному: для гравця це хаос, для системного погляду — модель, дані й логіка.</p>
+      <div class="comparison-grid">
+        <div class="comparison-card player">
+          <h3 data-i18n="cmp_player_title">Мислення гравця</h3>
+          <ul class="comparison-list">
+            <li data-i18n="cmp_p1">вірить у “везіння” і короткі серії</li>
+            <li data-i18n="cmp_p2">дивиться на емоції, а не на дані</li>
+            <li data-i18n="cmp_p3">шукає схеми замість логіки системи</li>
+            <li data-i18n="cmp_p4">бачить ставки, але не бачить бізнес-модель</li>
+          </ul>
+        </div>
+        <div class="comparison-card analyst">
+          <h3 data-i18n="cmp_analyst_title">Системне мислення</h3>
+          <ul class="comparison-list">
+            <li data-i18n="cmp_a1">читає RTP, volatility і House Edge</li>
+            <li data-i18n="cmp_a2">дивиться на дистанцію, а не на один результат</li>
+            <li data-i18n="cmp_a3">бачить, як продукт заробляє</li>
+            <li data-i18n="cmp_a4">розуміє поведінку гравця і логіку оператора</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tension-box">
+        <strong data-i18n="tension_text">Система не створена, щоб ти вигравав. Вона створена, щоб ти залишався в ній.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-up"><div class="container"><h2 class="section-title" data-i18n="about_title">Це не просто курси</h2><p class="section-sub" data-i18n="about_text">Analytix — це освітня платформа, яка пояснює, як насправді працює індустрія iGaming. Ти не просто дивишся уроки — ти розумієш систему: як працюють казино і букмекери, як формується RTP, чому гравці програють і як мислять оператори.</p></div></section>
+
+  <section id="value" class="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-i18n="value_title">Повне розуміння індустрії</h2>
+      <p class="section-sub" data-i18n="value_sub">Все, що потрібно, щоб перестати дивитися на iGaming як на гру і почати бачити його як систему.</p>
+      <div class="value-grid">
+        <div class="glass-card value-card"><div class="icon">🧠</div><h3 class="card-title" data-i18n="v1_t">Система</h3><p class="card-text" data-i18n="v1_d">Як працюють казино, букмекери, продукти та бізнес-логіка операторів.</p></div>
+        <div class="glass-card value-card"><div class="icon">📊</div><h3 class="card-title" data-i18n="v2_t">Дані</h3><p class="card-text" data-i18n="v2_d">RTP, odds, variance — просто, без води і без зайвого шуму.</p></div>
+        <div class="glass-card value-card"><div class="icon">💼</div><h3 class="card-title" data-i18n="v3_t">Кар’єра</h3><p class="card-text" data-i18n="v3_d">Які ролі існують в індустрії і як туди зайти з реальним розумінням.</p></div>
+        <div class="glass-card value-card"><div class="icon">🎮</div><h3 class="card-title" data-i18n="v4_t">Практика</h3><p class="card-text" data-i18n="v4_d">Симуляції та кейси замість сухої теорії — щоб знання переходили в дію.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="fade-up">
+    <div class="container product-grid">
+      <div>
+        <h2 class="section-title" data-i18n="product_title">Це не теорія — це інструмент</h2>
+        <p class="section-sub" data-i18n="product_sub">Ти не просто дивишся відео. Ти бачиш, як поводиться система, працюєш із логікою даних і починаєш читати продукт так, як його бачать оператори зсередини.</p>
+        <ul class="feature-list">
+          <li data-i18n="product_li_1">аналізуєш дані</li>
+          <li data-i18n="product_li_2">розумієш поведінку гравця</li>
+          <li data-i18n="product_li_3">бачиш логіку прибутку</li>
+        </ul>
+        <p class="section-sub" style="margin-top:22px;" data-i18n="product_note">👉 Це момент, коли iGaming перестає виглядати як хаос.</p>
+      </div>
+      <div class="dashboard">
+        <div class="dashboard-top">
+          <div class="sidebar">
+            <div class="active" data-i18n="dash_home">Головна</div>
+            <div data-i18n="dash_learning">Навчання</div>
+            <div data-i18n="dash_sim">Симулятор</div>
+            <div data-i18n="dash_analytics">Аналітика</div>
+            <div data-i18n="dash_career">Кар’єра</div>
+          </div>
+          <div class="dash-main">
+            <div class="dash-row">
+              <div class="mini-card"><div class="mini-label" data-i18n="mini_progress">Прогрес</div><div class="mini-value">68%</div></div>
+              <div class="mini-card"><div class="mini-label" data-i18n="mini_lessons">Уроків</div><div class="mini-value">12</div></div>
+              <div class="mini-card"><div class="mini-label" data-i18n="mini_cases">Кейсів</div><div class="mini-value">24</div></div>
+            </div>
+            <div class="big-chart">
+              <svg viewBox="0 0 800 260" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="lineGradient2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2D7FF9"/><stop offset="100%" stop-color="#00FFA3"/></linearGradient></defs>
+                <path d="M0,210 C70,190 120,195 180,170 C230,148 280,160 330,130 C390,94 450,118 510,100 C560,85 620,78 670,60 C720,44 760,48 800,28" fill="none" stroke="url(#lineGradient2)" stroke-width="5" stroke-linecap="round"/>
+                <path d="M0,210 C70,190 120,195 180,170 C230,148 280,160 330,130 C390,94 450,118 510,100 C560,85 620,78 670,60 C720,44 760,48 800,28 L800,260 L0,260 Z" fill="rgba(0,255,163,0.08)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-i18n="cs_title">Курси</h2>
+      <p class="section-sub" data-i18n="cs_sub">Навчання побудоване поступово: від базового розуміння iGaming до глибшої роботи з математикою, продуктом і аналітикою.</p>
+
+      <div class="course-tabs" id="courseList">
+        <div class="glass-card course-card course-tab-card active">
+          <div>
+            <div class="course-tab-top">
+              <span class="course-pill" data-i18n="cs1_pill">Курс 1</span>
+              <span class="course-status" data-i18n="cs1_status">Доступний</span>
+            </div>
+            <h3 data-i18n="cs1_title">Вступ до iGaming: як реально працює система</h3>
+            <p data-i18n="cs1_desc">Базовий курс про математику гри, економіку iGaming, продуктову логіку та системне мислення.</p>
+            <div class="course-tab-meta">
+              <span data-i18n="cs1_meta1">4 модулі</span><span data-i18n="cs1_meta2">20 уроків</span><span data-i18n="cs1_meta3">Foundation</span>
+            </div>
+          </div>
+          <a class="btn btn-primary course-open-btn" href="#course-1" data-open-course="1" data-i18n="cs1_btn">Відкрити програму</a>
+        </div>
+
+        <div class="glass-card course-card course-tab-card course-placeholder">
+          <div>
+            <div class="course-tab-top">
+              <span class="course-pill" data-i18n="cs2_pill">Курс 2</span>
+              <span class="course-status" data-i18n="cs2_status">Скоро</span>
+            </div>
+            <h3 data-i18n="cs2_title">RTP, Odds &amp; Probability</h3>
+            <p data-i18n="cs2_desc">Поглиблений курс про ймовірності, математичну дистанцію, RTP-моделі та аналітику результатів.</p>
+            <div class="course-tab-meta">
+              <span data-i18n="cs2_meta1">Advanced Core</span><span data-i18n="cs2_meta2">У розробці</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary course-open-btn" type="button" disabled data-i18n="cs2_btn">Скоро буде</button>
+        </div>
+
+        <div class="glass-card course-card course-tab-card course-placeholder">
+          <div>
+            <div class="course-tab-top">
+              <span class="course-pill" data-i18n="cs3_pill">Курс 3</span>
+              <span class="course-status" data-i18n="cs3_status">Скоро</span>
+            </div>
+            <h3 data-i18n="cs3_title">iGaming Product &amp; Analytics</h3>
+            <p data-i18n="cs3_desc">Практичний курс про метрики, CRM, сегментацію, retention, LTV та продуктову аналітику.</p>
+            <div class="course-tab-meta">
+              <span data-i18n="cs3_meta1">Product</span><span data-i18n="cs3_meta2">У розробці</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary course-open-btn" type="button" disabled data-i18n="cs3_btn">Скоро буде</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="course-1" aria-label="Course 1 Program">
+    <div class="container">
+      <div id="course1-shadow-root"></div>
+    </div>
+  </section>
+
+  <template id="course1-template">
+    <style>
+    /* ANALYTIX REFACТOR NOTE: visual styles preserved; edit content via data-i18n keys where possible. */
+    :root {
+      --bg: #07080d;
+      --bg-soft: #10131c;
+      --card: rgba(255, 255, 255, 0.055);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f4f6fb;
+      --muted: #a8afc3;
+      --gold: #d8a94f;
+      --gold-soft: rgba(216, 169, 79, 0.16);
+      --accent: #7b61ff;
+      --danger: #ff5f7e;
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(123, 97, 255, 0.22), transparent 34%),
+        radial-gradient(circle at top right, rgba(216, 169, 79, 0.16), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .course-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 80px 20px 100px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero {
+      padding: 54px;
+      border: 1px solid var(--card-border);
+      border-radius: calc(var(--radius) + 10px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025)),
+        linear-gradient(135deg, rgba(216,169,79,0.08), rgba(123,97,255,0.08));
+      box-shadow: 0 30px 90px rgba(0,0,0,0.42);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,169,79,0.22), transparent 62%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      max-width: 860px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      margin-bottom: 26px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 20px;
+      margin-bottom: 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-stat {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 28px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 76px 0 28px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section-title p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .modules {
+      display: grid;
+      gap: 24px;
+    }
+
+    .module-card {
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .module-head {
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(216,169,79,0.12), rgba(255,255,255,0.025));
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .module-number {
+      width: 108px;
+      height: 108px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      background: var(--gold-soft);
+      border: 1px solid rgba(216,169,79,0.28);
+      color: var(--gold);
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .module-kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+    }
+
+    .module-head h3 {
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
+    }
+
+    .module-head p {
+      color: var(--muted);
+      max-width: 780px;
+      font-size: 17px;
+    }
+
+    .lessons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lesson {
+      background: rgba(7,8,13,0.84);
+      padding: 24px;
+      min-height: 220px;
+    }
+
+    .lesson small {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .lesson h4 {
+      font-size: 20px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .lesson .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .lesson .idea {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+      color: #dfe4f5;
+      font-size: 14px;
+    }
+
+    .outcomes {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .outcome-card,
+    .format-card {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .outcome-card h3,
+    .format-card h3 {
+      font-size: 30px;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .cta {
+      margin-top: 28px;
+      padding: 44px;
+      border-radius: calc(var(--radius) + 8px);
+      background: linear-gradient(135deg, rgba(216,169,79,0.18), rgba(123,97,255,0.13));
+      border: 1px solid rgba(216,169,79,0.24);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #16120a;
+      box-shadow: 0 18px 40px rgba(216,169,79,0.23);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+
+    .top-nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-nav a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.06);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .top-nav span,
+    .top-nav .brand-link {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        padding: 34px;
+      }
+
+      .hero-grid,
+      .outcomes {
+        grid-template-columns: 1fr;
+      }
+
+      .module-head {
+        grid-template-columns: 1fr;
+      }
+
+      .lessons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .course-section {
+        padding: 46px 14px 70px;
+      }
+
+      .hero {
+        padding: 26px;
+        border-radius: 28px;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 14px;
+      }
+
+      .lessons {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson {
+        min-height: auto;
+      }
+
+      .cta {
+        padding: 30px 22px;
+      }
+    }
+  
+      .course-section { padding-top: 34px; }
+      .course-back-btn { margin-bottom: 22px; }
+    </style>
+    
+  <div class="top-nav"><a class="brand-link" href="#" data-course-home>ANALYTIX · COURSE 1</a><a href="#" data-course-home data-i18n="c1_back">← До платформи</a></div>
+  <main class="course-section">
+    <section class="hero">
+      <div class="badge" data-i18n="c1_badge">Базовий курс · iGaming Education</div>
+      <h1>iGaming: <span data-i18n="c1_hero_title2">як реально працює система</span></h1>
+      <p class="hero-text" data-i18n="c1_hero_text">
+        Навчальна програма для тих, хто хоче зрозуміти не міфи про гру, а справжню логіку iGaming: математику, економіку, продуктову архітектуру та системне мислення.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-stat">
+          <strong>4</strong>
+          <span data-i18n="c1_stat1">навчальні модулі</span>
+        </div>
+        <div class="hero-stat">
+          <strong>20</strong>
+          <span data-i18n="c1_stat2">структурованих уроків</span>
+        </div>
+        <div class="hero-stat">
+          <strong>1</strong>
+          <span data-i18n="c1_stat3">головна ціль: бачити систему</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2 data-i18n="c1_program_title">Програма курсу</h2>
+      <p data-i18n="c1_program_sub">Курс побудований як поступовий перехід від базової математики гри до стратегічного мислення й розуміння продуктової системи.</p>
+    </div>
+
+    <section class="modules">
+      <article class="module-card">
+        <div class="module-head">
+          <div class="module-number">01</div>
+          <div>
+            <div class="module-kicker">Module 1 · Foundations</div>
+            <h3 data-i18n="c1_m1_title">Як влаштована математика гри</h3>
+            <p data-i18n="c1_m1_desc">Базовий модуль про випадковість, RTP, перевагу казино, дисперсію та головні когнітивні помилки гравця.</p>
+          </div>
+        </div>
+        <div class="lessons">
+          <div class="lesson"><small>Lesson 1</small><h4>Randomness vs Control</h4><p class="subtitle" data-i18n="c1_l1_sub">Чому тобі здається, що ти контролюєш гру</p><p class="idea" data-i18n="c1_l1_idea">Людина вірить у контроль там, де працює математична випадковість.</p></div>
+          <div class="lesson"><small>Lesson 2</small><h4>RTP</h4><p class="subtitle" data-i18n="c1_l2_sub">Що це і як воно реально працює</p><p class="idea" data-i18n="c1_l2_idea">RTP — це статистика системи, а не гарантія для гравця.</p></div>
+          <div class="lesson"><small>Lesson 3</small><h4>House Edge</h4><p class="subtitle" data-i18n="c1_l3_sub">Як казино реально заробляє</p><p class="idea" data-i18n="c1_l3_idea">Казино заробляє не на твоєму програші, а на математичній перевазі.</p></div>
+          <div class="lesson"><small>Lesson 4</small><h4>Variance</h4><p class="subtitle" data-i18n="c1_l4_sub">Чому короткостроково можливе все</p><p class="idea" data-i18n="c1_l4_idea">Хаос короткої дистанції створює ілюзію “системи”.</p></div>
+          <div class="lesson"><small>Lesson 5</small><h4>Gambler’s Fallacy</h4><p class="subtitle" data-i18n="c1_l5_sub">Найнебезпечніша помилка мислення</p><p class="idea" data-i18n="c1_l5_idea">Після програшів виграш не стає ближчим.</p></div>
+        </div>
+      </article>
+
+      <article class="module-card">
+        <div class="module-head">
+          <div class="module-number">02</div>
+          <div>
+            <div class="module-kicker">Module 2 · Game Economics</div>
+            <h3 data-i18n="c1_m2_title">Як заробляє iGaming</h3>
+            <p data-i18n="c1_m2_desc">Модуль про бонуси, VIP-системи, retention, повторні депозити та психологію втрат.</p>
+          </div>
+        </div>
+        <div class="lessons">
+          <div class="lesson"><small>Lesson 6</small><h4>Bonus Mechanics</h4><p class="subtitle" data-i18n="c1_l6_sub">Чому бонуси майже ніколи не безкоштовні</p><p class="idea" data-i18n="c1_l6_idea">Бонус — це інструмент утримання, а не подарунок.</p></div>
+          <div class="lesson"><small>Lesson 7</small><h4>VIP Systems</h4><p class="subtitle" data-i18n="c1_l7_sub">Чому High Rollers — найцінніші</p><p class="idea" data-i18n="c1_l7_idea">Казино заробляє не на масі, а на поведінці.</p></div>
+          <div class="lesson"><small>Lesson 8</small><h4>Retention Logic</h4><p class="subtitle" data-i18n="c1_l8_sub">Чому тебе завжди повертають</p><p class="idea" data-i18n="c1_l8_idea">iGaming — це retention business, а не entertainment business.</p></div>
+          <div class="lesson"><small>Lesson 9</small><h4>Deposit Psychology</h4><p class="subtitle" data-i18n="c1_l9_sub">Як працює психологія повторного депозиту</p><p class="idea" data-i18n="c1_l9_idea">Після першого депозиту людина входить у зовсім іншу логіку.</p></div>
+          <div class="lesson"><small>Lesson 10</small><h4>Loss Recovery Trap</h4><p class="subtitle" data-i18n="c1_l10_sub">Чому “відігратись” — це пастка</p><p class="idea" data-i18n="c1_l10_idea">Емоція програшу сильніша за логіку.</p></div>
+        </div>
+      </article>
+
+      <article class="module-card">
+        <div class="module-head">
+          <div class="module-number">03</div>
+          <div>
+            <div class="module-kicker">Module 3 · Product & System Design</div>
+            <h3 data-i18n="c1_m3_title">Як система будується зсередини</h3>
+            <p data-i18n="c1_m3_desc">Модуль про провайдерів, платформу, anti-fraud, CRM, сегментацію, affiliate-модель та LTV.</p>
+          </div>
+        </div>
+        <div class="lessons">
+          <div class="lesson"><small>Lesson 11</small><h4>Game Provider Logic</h4><p class="subtitle" data-i18n="c1_l11_sub">Хто реально контролює гру</p><p class="idea" data-i18n="c1_l11_idea">Оператор ≠ провайдер ≠ платформа.</p></div>
+          <div class="lesson"><small>Lesson 12</small><h4>Risk & Fraud</h4><p class="subtitle" data-i18n="c1_l12_sub">Як система захищається від гравця</p><p class="idea" data-i18n="c1_l12_idea">Платформа теж “грає” проти зловживань.</p></div>
+          <div class="lesson"><small>Lesson 13</small><h4>CRM & Segmentation</h4><p class="subtitle" data-i18n="c1_l13_sub">Чому різним людям показують різний продукт</p><p class="idea" data-i18n="c1_l13_idea">Ти бачиш не “сайт”, а персоналізовану систему.</p></div>
+          <div class="lesson"><small>Lesson 14</small><h4>Affiliate Model</h4><p class="subtitle" data-i18n="c1_l14_sub">Хто приводить гравців і чому це дорого</p><p class="idea" data-i18n="c1_l14_idea">Traffic — це справжня валюта iGaming.</p></div>
+          <div class="lesson"><small>Lesson 15</small><h4>Lifetime Value</h4><p class="subtitle" data-i18n="c1_l15_sub">Чому один гравець може коштувати тисячі доларів</p><p class="idea" data-i18n="c1_l15_idea">Цінність — не в депозиті, а в поведінці на дистанції.</p></div>
+        </div>
+      </article>
+
+      <article class="module-card">
+        <div class="module-head">
+          <div class="module-number">04</div>
+          <div>
+            <div class="module-kicker">Module 4 · Strategic Thinking</div>
+            <h3 data-i18n="c1_m4_title">Як мислити не як гравець</h3>
+            <p data-i18n="c1_m4_desc">Фінальний модуль формує системне бачення, дисципліну й архітектуру рішень.</p>
+          </div>
+        </div>
+        <div class="lessons">
+          <div class="lesson"><small>Lesson 16</small><h4>System Thinking</h4><p class="subtitle" data-i18n="c1_l16_sub">Як бачити модель, а не результат</p><p class="idea" data-i18n="c1_l16_idea">Перехід від емоційного сприйняття до системного аналізу.</p></div>
+          <div class="lesson"><small>Lesson 17</small><h4>Probability Discipline</h4><p class="subtitle" data-i18n="c1_l17_sub">Як приймати рішення без самообману</p><p class="idea" data-i18n="c1_l17_idea">Робота з ймовірностями, дистанцією та оцінкою ризику.</p></div>
+          <div class="lesson"><small>Lesson 18</small><h4>Emotional Detachment</h4><p class="subtitle" data-i18n="c1_l18_sub">Чому емоції — головний ворог</p><p class="idea" data-i18n="c1_l18_idea">Контроль емоційного впливу на фінансові рішення.</p></div>
+          <div class="lesson"><small>Lesson 19</small><h4>Decision Architecture</h4><p class="subtitle" data-i18n="c1_l19_sub">Як професіонали мислять інакше</p><p class="idea" data-i18n="c1_l19_idea">Структура сильних рішень та професійна логіка оцінки ситуації.</p></div>
+          <div class="lesson"><small>Lesson 20</small><h4>Final Framework</h4><p class="subtitle" data-i18n="c1_l20_sub">Повна карта iGaming-мислення</p><p class="idea" data-i18n="c1_l20_idea">Інтеграція всіх моделей курсу в єдину систему мислення.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-title">
+      <h2 data-i18n="c1_out_title">Що отримає студент</h2>
+      <p data-i18n="c1_out_sub">Курс не продає ілюзію виграшу. Він дає фундаментальне розуміння того, як працює система.</p>
+    </div>
+
+    <section class="outcomes">
+      <div class="outcome-card">
+        <h3 data-i18n="c1_res_title">Результат навчання</h3>
+        <ul class="check-list">
+          <li data-i18n="c1_res_1">Розуміння математичної логіки гри: RTP, house edge, variance.</li>
+          <li data-i18n="c1_res_2">Здатність відрізняти випадковість від закономірності.</li>
+          <li data-i18n="c1_res_3">Розуміння економіки бонусів, retention та повторних депозитів.</li>
+          <li data-i18n="c1_res_4">Базове бачення продуктової архітектури iGaming-платформи.</li>
+          <li data-i18n="c1_res_5">Перехід від емоційного мислення до системного аналізу.</li>
+        </ul>
+      </div>
+
+      <div class="format-card">
+        <h3 data-i18n="c1_fmt_title">Формат курсу</h3>
+        <ul class="check-list">
+          <li data-i18n="c1_fmt_1">Відеоуроки з візуальними поясненнями.</li>
+          <li data-i18n="c1_fmt_2">Практичні кейси та реальні продуктові приклади.</li>
+          <li data-i18n="c1_fmt_3">Тести для перевірки розуміння.</li>
+          <li data-i18n="c1_fmt_4">Симулятори рішень і контрольні блоки.</li>
+          <li data-i18n="c1_fmt_5">Фінальна карта iGaming-мислення.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2 data-i18n="c1_cta_title">Не навчитися грати. Навчитися бачити систему.</h2>
+      <p data-i18n="c1_cta_text">
+        Базовий курс для тих, хто хоче зрозуміти, як iGaming працює на рівні математики, поведінки, продукту та рішень.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-secondary" href="#lms-registration" data-course-cta-trigger utm_source="analytix_site" utm_medium="cta" utm_campaign="course1" utm_content="course1_demo" data-i18n="c1_cta_btn">Пройти демо курс</a>
+      </div>
+    </section>
+  </main>
+
+  </template>
+  <section id="simulator" class="fade-up">
+    <div class="container sim-grid">
+      <div>
+        <h2 class="section-title" data-i18n="sim_title">Ти можеш читати про RTP… або побачити його</h2>
+        <p class="section-sub" data-i18n="sim_sub">Запусти симуляцію і подивись, як система поводиться на дистанції — без теорії, тільки механіка.</p><p class="card-text" style="margin:-12px 0 22px;" data-i18n="sim_disclaimer">Симулятор не прогнозує виграш. Він показує, як дистанція змінює сприйняття результату.</p>
+        <ul class="feature-list">
+          <li data-i18n="sim_li_1">як змінюється баланс</li>
+          <li data-i18n="sim_li_2">як працює дистанція</li>
+          <li data-i18n="sim_li_3">як формується результат</li>
+        </ul>
+        <div class="actions" style="margin-top:28px;"><button type="button" class="btn btn-primary" data-lead-trigger="121766" utm_source="analytix_site" utm_medium="cta" utm_campaign="lms_registration" utm_content="simulator_cta" data-i18n="sim_btn">Пройти демо курс</button></div>
+      </div>
+      <div class="sim-panel simulator-box">
+        <div class="sim-row"><span data-i18n="sim_label">Симулятор слоту</span><span>RTP 96.08%</span></div>
+        <div class="range"></div>
+        <div class="three">
+          <div class="slot" data-slot="0">A</div>
+          <div class="slot" data-slot="1">A</div>
+          <div class="slot" data-slot="2">A</div>
+        </div>
+
+        <div class="sim-controls">
+          <div class="sim-control"><span data-i18n="sim_spins">Спіни</span><strong id="spinCount">0</strong></div>
+          <div class="sim-control"><span data-i18n="sim_rtp_real">Факт. RTP</span><strong id="actualRtp">—</strong></div>
+        </div>
+
+        <div class="dash-row">
+          <div class="mini-card"><div class="mini-label" data-i18n="sim_balance">Баланс</div><div class="mini-value" id="simBalance">1 250 ₴</div></div>
+          <div class="mini-card"><div class="mini-label" data-i18n="sim_bet">Ставка</div><div class="mini-value" id="simBet">20 ₴</div></div>
+          <div class="mini-card"><div class="mini-label" data-i18n="sim_win">Виграш</div><div class="mini-value" id="simWin">0 ₴</div></div>
+        </div>
+        <div class="sim-actions">
+          <button class="btn btn-primary" type="button" id="spinButton" data-i18n="sim_spin">СПІН</button>
+          <button class="btn btn-secondary" type="button" id="autoSpinButton">Автоспін 25x</button>
+        </div>
+        <div class="sim-message" id="simMessage" data-i18n="sim_msg_start">Натисни СПІН і подивись, як коротка дистанція створює ілюзію випадковості.</div>
+        <div class="big-chart" style="height:120px;" id="simChart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience" class="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-i18n="aud_title">Кому це потрібно</h2>
+      <p class="section-sub" data-i18n="aud_sub">Платформа підходить і тим, хто тільки знайомиться з індустрією, і тим, хто хоче увійти в неї професійно.</p>
+      <div class="audience-grid">
+        <div class="glass-card audience-card"><div class="icon">🚀</div><h3 class="card-title" data-i18n="a1_t">Новачкам</h3><p class="card-text" data-i18n="a1_d">Хочеш зрозуміти, як все працює, і перестати дивитися на це як на хаос.</p></div>
+        <div class="glass-card audience-card"><div class="icon">📈</div><h3 class="card-title" data-i18n="a2_t">Тим, хто хоче бачити логіку</h3><p class="card-text" data-i18n="a2_d">Хочеш перестати мислити через удачу і почати бачити логіку системи, продукту та рішень.</p></div>
+        <div class="glass-card audience-card"><div class="icon">💼</div><h3 class="card-title" data-i18n="a3_t">Кар’єра в iGaming</h3><p class="card-text" data-i18n="a3_d">Хочеш зайти в індустрію, розвиватися і розуміти її зсередини.</p></div>
+        <div class="glass-card audience-card"><div class="icon">🎯</div><h3 class="card-title" data-i18n="a4_t">Практикам</h3><p class="card-text" data-i18n="a4_d">Хочеш не просто читати, а бачити, як поводиться система в реальних сценаріях.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="fade-up">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-sub" data-i18n="faq_sub">Відповіді на ключові питання, які зазвичай виникають перед стартом.</p>
+      <div class="faq-grid">
+        <div class="glass-card faq-card"><h3 class="faq-q" data-i18n="f1_q">Для кого ця платформа?</h3><p class="card-text" data-i18n="f1_a">Для новачків, тих, хто хоче працювати в iGaming, і тих, хто хоче розібратися в системі професійно.</p></div>
+        <div class="glass-card faq-card"><h3 class="faq-q" data-i18n="f2_q">Це вчить грати?</h3><p class="card-text" data-i18n="f2_a">Ні. Analytix не вчить грати чи обігравати систему. Платформа пояснює, як iGaming працює з точки зору математики, продукту й поведінки користувача.</p></div>
+        <div class="glass-card faq-card"><h3 class="faq-q" data-i18n="f3_q">Чи потрібен досвід?</h3><p class="card-text" data-i18n="f3_a">Ні. Базовий трек побудований так, щоб почати з нуля і поступово перейти до складніших тем.</p></div>
+        <div class="glass-card faq-card"><h3 class="faq-q" data-i18n="f4_q">Що я отримаю після проходження?</h3><p class="card-text" data-i18n="f4_a">Розуміння індустрії, практику на симуляторах, фундамент для подальшого навчання або входу в iGaming.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta fade-up" id="cta">
+    <div class="container">
+      <div class="cta-box" id="lms-registration">
+        <h2 class="section-title" style="margin-bottom:12px;" data-i18n="cta_title">Пройти перший курс безкоштовно</h2>
+        <p class="section-sub" style="margin:0 auto 28px; max-width:640px;" data-i18n="cta_sub">Залиш заявку — і ми відкриємо доступ до навчального середовища Analytix.</p>
+
+        <div class="lms-widget-wrap">
+          <button type="button"
+                  class="btn btn-primary"
+                  data-lead-trigger="121766"
+                  utm_source="analytix_site"
+                  utm_medium="cta"
+                  utm_campaign="lms_registration"
+                  utm_content="cta_box_main"
+                  data-i18n="cta_btn_open">Пройти демо курс</button>
+          <script type="module" src="https://kwiga.com/build/js/kwiga-widget.js?t=121766&uuid=5ea79f16-4058-4ebf-bc40-06da96f3d860&is_modal=true&utm=utm_source=analytix_site;utm_medium=cta;utm_campaign=lms_registration;utm_content=default"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mobile-sticky-cta"><button type="button" class="btn btn-primary" data-lead-trigger="121766" utm_source="analytix_site" utm_medium="cta" utm_campaign="lms_registration" utm_content="mobile_sticky" data-i18n="mobile_cta">Пройти демо курс</button></div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-stats" aria-label="Analytix platform stats">
+        <div class="footer-stat">
+          <div class="footer-stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="footer-stat-value" data-i18n="footer_stat_1_value">10 000+</div>
+            <div class="footer-stat-label" data-i18n="footer_stat_1_label">студентів вже з нами</div>
+          </div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8"/><path d="M8 10h8"/></svg>
+          </div>
+          <div>
+            <div class="footer-stat-value" data-i18n="footer_stat_2_value">50+</div>
+            <div class="footer-stat-label" data-i18n="footer_stat_2_label">практичних курсів</div>
+          </div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M14 9h5v5"/></svg>
+          </div>
+          <div>
+            <div class="footer-stat-value" data-i18n="footer_stat_3_value">200+</div>
+            <div class="footer-stat-label" data-i18n="footer_stat_3_label">практичних завдань</div>
+          </div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="footer-stat-value" data-i18n="footer_stat_4_value">4.9/5</div>
+            <div class="footer-stat-label" data-i18n="footer_stat_4_label">середня оцінка курсів</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <span class="footer-brand"><span class="brand-word">ANALYTI<span class="x">X</span></span><span data-i18n="footer">© 2026 — Платформа системного навчання в iGaming</span></span>
+        <div class="footer-links">
+          <a href="#about" data-i18n="footer_link_about">Про платформу</a>
+          <a href="#courses" data-i18n="footer_link_courses">Курси</a>
+          <a href="#faq" data-i18n="footer_link_faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script>
+    // ANALYTIX REFACTOR NOTE: navigation, language switcher and course routing preserved.
+    // CTA convention: access buttons point to #cta; demo buttons point to #simulator.
+    const translations = {
+      uk: {
+        nav_about:'Про платформу', nav_courses:'Курси', nav_sim:'Симулятор', nav_faq:'FAQ', nav_cta:'Пройти демо курс',
+        hero_eyebrow:'Освітня платформа про iGaming',
+        hero_title:'iGaming — це не гра.<br><span class="accent">Це система, яку більшість не бачить.</span>',
+        hero_lead:'Analytix показує, як насправді працюють RTP, volatility, House Edge і логіка прибутку — так, як її бачать оператори зсередини.',
+        hero_btn_1:'Пройти демо курс', hero_btn_2:'Спробувати симулятор',
+        proof_1:'Без води', proof_2:'Практика', proof_3:'Реальні механіки індустрії', proof_4:'Навик, за який платять в iGaming',
+        stat_vol:'Волатильність',
+        cmp_title:'Гравець бачить хаос. Система має логіку.',
+        cmp_sub:'Одна й та сама індустрія виглядає по-різному: для гравця це хаос, для системного погляду — модель, дані й логіка.',
+        cmp_player_title:'Мислення гравця',
+        cmp_p1:'вірить у “везіння” і короткі серії',
+        cmp_p2:'дивиться на емоції, а не на дані',
+        cmp_p3:'шукає схеми замість логіки системи',
+        cmp_p4:'бачить ставки, але не бачить бізнес-модель',
+        cmp_analyst_title:'Системне мислення',
+        cmp_a1:'читає RTP, volatility і House Edge',
+        cmp_a2:'дивиться на дистанцію, а не на один результат',
+        cmp_a3:'бачить, як продукт заробляє',
+        cmp_a4:'розуміє поведінку гравця і логіку оператора',
+        tension_text:'Система не створена, щоб ти вигравав. Вона створена, щоб ти залишався в ній.',
+        about_title:'Це не просто курси',
+        about_text:'Analytix — це освітня платформа, яка пояснює, як насправді працює індустрія iGaming. Ти не просто дивишся уроки — ти розумієш систему: як працюють казино і букмекери, як формується RTP, чому гравці програють і як мислять оператори.',
+        value_title:'Повне розуміння індустрії',
+        value_sub:'Все, що потрібно, щоб перестати дивитися на iGaming як на гру і почати бачити його як систему.',
+        v1_t:'Система', v1_d:'Як працюють казино, букмекери, продукти та бізнес-логіка операторів.',
+        v2_t:'Дані', v2_d:'RTP, odds, variance — просто, без води і без зайвого шуму.',
+        v3_t:'Кар’єра', v3_d:'Які ролі існують в індустрії і як туди зайти з реальним розумінням.',
+        v4_t:'Практика', v4_d:'Симуляції та кейси замість сухої теорії — щоб знання переходили в дію.',
+        product_title:'Це не теорія — це інструмент',
+        product_sub:'Ти не просто дивишся відео. Ти бачиш, як поводиться система, працюєш із логікою даних і починаєш читати продукт так, як його бачать оператори зсередини.',
+        product_li_1:'аналізуєш дані', product_li_2:'розумієш поведінку гравця', product_li_3:'бачиш логіку прибутку',
+        product_note:'👉 Це момент, коли iGaming перестає виглядати як хаос.',
+        dash_home:'Головна', dash_learning:'Навчання', dash_sim:'Симулятор', dash_analytics:'Аналітика', dash_career:'Кар’єра',
+        mini_progress:'Прогрес', mini_lessons:'Уроків', mini_cases:'Кейсів',
+        sim_title:'Ти можеш читати про RTP… або побачити його',
+        sim_sub:'Запусти симуляцію і подивись, як система поводиться на дистанції — без теорії, тільки механіка.',
+        sim_disclaimer:'Симулятор не прогнозує виграш. Він показує, як дистанція змінює сприйняття результату.', sim_li_1:'як змінюється баланс', sim_li_2:'як працює дистанція', sim_li_3:'як формується результат',
+        sim_btn:'Пройти демо курс', sim_label:'Симулятор слоту', sim_spins:'Спіни', sim_rtp_real:'Факт. RTP', sim_autospin:'Автоспін 25x', sim_stop:'Зупинити', sim_balance:'Баланс', sim_bet:'Ставка', sim_win:'Виграш', sim_spin:'СПІН', sim_msg_start:'Натисни СПІН і подивись, як коротка дистанція створює ілюзію випадковості.', sim_msg_big:'Великий виграш на короткій дистанції виглядає як “система”, але це лише variance.', sim_msg_win:'Є виграш, але важлива не одна подія — важлива дистанція.', sim_msg_zero:'Нульовий виграш у спіні — нормальна частина моделі. Система працює на дистанції.', c1_cta_btn:'Пройти демо курс',
+        c1_back:'← До платформи', c1_badge:'Базовий курс · iGaming Education', c1_hero_title2:'як реально працює система', c1_hero_text:'Навчальна програма для тих, хто хоче зрозуміти не міфи про гру, а справжню логіку iGaming: математику, економіку, продуктову архітектуру та системне мислення.', c1_stat1:'навчальні модулі', c1_stat2:'структурованих уроків', c1_stat3:'головна ціль: бачити систему', c1_program_title:'Програма курсу', c1_program_sub:'Курс побудований як поступовий перехід від базової математики гри до стратегічного мислення й розуміння продуктової системи.', c1_m1_title:'Як влаштована математика гри', c1_m1_desc:'Базовий модуль про випадковість, RTP, перевагу казино, дисперсію та головні когнітивні помилки гравця.', c1_l1_sub:'Чому тобі здається, що ти контролюєш гру', c1_l1_idea:'Людина вірить у контроль там, де працює математична випадковість.', c1_l2_sub:'Що це і як воно реально працює', c1_l2_idea:'RTP — це статистика системи, а не гарантія для гравця.', c1_l3_sub:'Як казино реально заробляє', c1_l3_idea:'Казино заробляє не на твоєму програші, а на математичній перевазі.', c1_l4_sub:'Чому короткостроково можливе все', c1_l4_idea:'Хаос короткої дистанції створює ілюзію “системи”.', c1_l5_sub:'Найнебезпечніша помилка мислення', c1_l5_idea:'Після програшів виграш не стає ближчим.', c1_m2_title:'Як заробляє iGaming', c1_m2_desc:'Модуль про бонуси, VIP-системи, retention, повторні депозити та психологію втрат.', c1_l6_sub:'Чому бонуси майже ніколи не безкоштовні', c1_l6_idea:'Бонус — це інструмент утримання, а не подарунок.', c1_l7_sub:'Чому High Rollers — найцінніші', c1_l7_idea:'Казино заробляє не на масі, а на поведінці.', c1_l8_sub:'Чому тебе завжди повертають', c1_l8_idea:'iGaming — це retention business, а не entertainment business.', c1_l9_sub:'Як працює психологія повторного депозиту', c1_l9_idea:'Після першого депозиту людина входить у зовсім іншу логіку.', c1_l10_sub:'Чому “відігратись” — це пастка', c1_l10_idea:'Емоція програшу сильніша за логіку.', c1_m3_title:'Як система будується зсередини', c1_m3_desc:'Модуль про провайдерів, платформу, anti-fraud, CRM, сегментацію, affiliate-модель та LTV.', c1_l11_sub:'Хто реально контролює гру', c1_l11_idea:'Оператор ≠ провайдер ≠ платформа.', c1_l12_sub:'Як система захищається від гравця', c1_l12_idea:'Платформа теж “грає” проти зловживань.', c1_l13_sub:'Чому різним людям показують різний продукт', c1_l13_idea:'Ти бачиш не “сайт”, а персоналізовану систему.', c1_l14_sub:'Хто приводить гравців і чому це дорого', c1_l14_idea:'Traffic — це справжня валюта iGaming.', c1_l15_sub:'Чому один гравець може коштувати тисячі доларів', c1_l15_idea:'Цінність — не в депозиті, а в поведінці на дистанції.', c1_m4_title:'Як мислити не як гравець', c1_m4_desc:'Фінальний модуль формує системне бачення, дисципліну й архітектуру рішень.', c1_l16_sub:'Як бачити модель, а не результат', c1_l16_idea:'Перехід від емоційного сприйняття до системного аналізу.', c1_l17_sub:'Як приймати рішення без самообману', c1_l17_idea:'Робота з ймовірностями, дистанцією та оцінкою ризику.', c1_l18_sub:'Чому емоції — головний ворог', c1_l18_idea:'Контроль емоційного впливу на фінансові рішення.', c1_l19_sub:'Як професіонали мислять інакше', c1_l19_idea:'Структура сильних рішень та професійна логіка оцінки ситуації.', c1_l20_sub:'Повна карта iGaming-мислення', c1_l20_idea:'Інтеграція всіх моделей курсу в єдину систему мислення.', c1_out_title:'Що отримає студент', c1_out_sub:'Курс не продає ілюзію виграшу. Він дає фундаментальне розуміння того, як працює система.', c1_res_title:'Результат навчання', c1_res_1:'Розуміння математичної логіки гри: RTP, house edge, variance.', c1_res_2:'Здатність відрізняти випадковість від закономірності.', c1_res_3:'Розуміння економіки бонусів, retention та повторних депозитів.', c1_res_4:'Базове бачення продуктової архітектури iGaming-платформи.', c1_res_5:'Перехід від емоційного мислення до системного аналізу.', c1_fmt_title:'Формат курсу', c1_fmt_1:'Відеоуроки з візуальними поясненнями.', c1_fmt_2:'Практичні кейси та реальні продуктові приклади.', c1_fmt_3:'Тести для перевірки розуміння.', c1_fmt_4:'Симулятори рішень і контрольні блоки.', c1_fmt_5:'Фінальна карта iGaming-мислення.', c1_cta_title:'Не навчитися грати. Навчитися бачити систему.', c1_cta_text:'Базовий курс для тих, хто хоче зрозуміти, як iGaming працює на рівні математики, поведінки, продукту та рішень.',
+        cs_title:'Курси', cs_sub:'Навчання побудоване поступово: від базового розуміння iGaming до глибшої роботи з математикою, продуктом і аналітикою.',
+        cs1_pill:'Курс 1', cs1_status:'Доступний', cs1_title:'Вступ до iGaming: як реально працює система', cs1_desc:'Базовий курс про математику гри, економіку iGaming, продуктову логіку та системне мислення.', cs1_meta1:'4 модулі', cs1_meta2:'20 уроків', cs1_meta3:'Foundation', cs1_btn:'Відкрити програму',
+        cs2_pill:'Курс 2', cs2_status:'Скоро', cs2_title:'RTP, Odds & Probability', cs2_desc:'Поглиблений курс про ймовірності, математичну дистанцію, RTP-моделі та аналітику результатів.', cs2_meta1:'Advanced Core', cs2_meta2:'У розробці', cs2_btn:'Скоро буде',
+        cs3_pill:'Курс 3', cs3_status:'Скоро', cs3_title:'iGaming Product & Analytics', cs3_desc:'Практичний курс про метрики, CRM, сегментацію, retention, LTV та продуктову аналітику.', cs3_meta1:'Product', cs3_meta2:'У розробці', cs3_btn:'Скоро буде',
+        aud_title:'Кому це потрібно',
+        aud_sub:'Платформа підходить і тим, хто тільки знайомиться з індустрією, і тим, хто хоче увійти в неї професійно.',
+        a1_t:'Новачкам', a1_d:'Хочеш зрозуміти, як все працює, і перестати дивитися на це як на хаос.',
+        a2_t:'Тим, хто хоче бачити логіку', a2_d:'Хочеш перестати мислити через удачу і почати бачити логіку системи, продукту та рішень.',
+        a3_t:'Кар’єра в iGaming', a3_d:'Хочеш зайти в індустрію, розвиватися і розуміти її зсередини.',
+        a4_t:'Практикам', a4_d:'Хочеш не просто читати, а бачити, як поводиться система в реальних сценаріях.',
+        faq_sub:'Відповіді на ключові питання, які зазвичай виникають перед стартом.',
+        f1_q:'Для кого ця платформа?', f1_a:'Для новачків, тих, хто хоче працювати в iGaming, і тих, хто хоче розібратися в системі професійно.',
+        f2_q:'Це вчить грати?', f2_a:'Ні. Analytix не вчить грати чи обігравати систему. Платформа пояснює, як iGaming працює з точки зору математики, продукту й поведінки користувача.',
+        f3_q:'Чи потрібен досвід?', f3_a:'Ні. Базовий трек побудований так, щоб почати з нуля і поступово перейти до складніших тем.',
+        f4_q:'Що я отримаю після проходження?', f4_a:'Розуміння індустрії, практику на симуляторах, фундамент для подальшого навчання або входу в iGaming.',
+        cta_title:'Пройти перший курс безкоштовно', cta_sub:'Залиш заявку — і ми відкриємо доступ до навчального середовища Analytix.', lms_note:'Без спаму. Тільки доступ до LMS, оновлення платформи і матеріали про iGaming.', lms_success:'✅ Заявку прийнято. Наступний крок — перевір пошту або Telegram.',
+        cta_btn:'Пройти демо курс', cta_btn_open:'Пройти демо курс', mobile_cta:'Пройти демо курс', footer_stat_1_value:'10 000+', footer_stat_1_label:'студентів вже з нами', footer_stat_2_value:'50+', footer_stat_2_label:'практичних курсів', footer_stat_3_value:'200+', footer_stat_3_label:'практичних завдань', footer_stat_4_value:'4.9/5', footer_stat_4_label:'середня оцінка курсів', footer_link_about:'Про платформу', footer_link_courses:'Курси', footer_link_faq:'FAQ', footer:'© 2026 — Платформа системного навчання в iGaming'
+      },
+      en: {
+        nav_about:'About', nav_courses:'Courses', nav_sim:'Simulator', nav_faq:'FAQ', nav_cta:'Try demo course',
+        hero_eyebrow:'Educational platform about iGaming',
+        hero_title:'iGaming is not a game.<br><span class="accent">It is a system most people never see.</span>',
+        hero_lead:'iGaming is not a game. It is a system. Analytix explains RTP, probabilities, and profit logic the way operators see it from the inside.',
+        hero_btn_1:'Try demo course', hero_btn_2:'Try simulator',
+        proof_1:'No fluff', proof_2:'Practice', proof_3:'Real industry mechanics', proof_4:'A skill paid for in iGaming',
+        stat_vol:'Volatility',
+        cmp_title:'A player sees chaos. The system has logic.',
+        cmp_sub:'The same industry looks different: for a player it is chaos, but from a systems view it becomes a model, data, and logic.',
+        cmp_player_title:'Player mindset',
+        cmp_p1:'believes in luck and short streaks',
+        cmp_p2:'looks at emotion instead of data',
+        cmp_p3:'searches for tricks instead of system logic',
+        cmp_p4:'sees bets but not the business model',
+        cmp_analyst_title:'System thinking',
+        cmp_a1:'reads RTP, volatility, and House Edge',
+        cmp_a2:'looks at distance, not a single result',
+        cmp_a3:'sees how the product makes money',
+        cmp_a4:'understands player behavior and operator logic',
+        tension_text:'The system is not designed for you to win. It is designed for you to stay inside it.',
+        about_title:'This is not just courses',
+        about_text:'Analytix is an educational platform that explains how the iGaming industry really works. You do not just watch lessons — you understand the system: how casinos and sportsbooks operate, how RTP is formed, why players lose, and how operators think.',
+        value_title:'A complete understanding of the industry',
+        value_sub:'Everything you need to stop seeing iGaming as a game and start seeing it as a system.',
+        v1_t:'System', v1_d:'How casinos, sportsbooks, products, and operator business logic work.',
+        v2_t:'Data', v2_d:'RTP, odds, variance — clearly, without noise.',
+        v3_t:'Career', v3_d:'What roles exist in the industry and how to enter with real understanding.',
+        v4_t:'Practice', v4_d:'Simulations and cases instead of dry theory — so knowledge turns into action.',
+        product_title:'This is not theory — it is a tool',
+        product_sub:'You do not just watch videos. You see how the system behaves, work with data logic, and start reading the product from the inside.',
+        product_li_1:'analyze data', product_li_2:'understand player behavior', product_li_3:'see profit logic',
+        product_note:'👉 This is the moment when iGaming stops looking like chaos.',
+        dash_home:'Home', dash_learning:'Learning', dash_sim:'Simulator', dash_analytics:'Analytics', dash_career:'Career',
+        mini_progress:'Progress', mini_lessons:'Lessons', mini_cases:'Cases',
+        sim_title:'You can read about RTP… or actually see it',
+        sim_sub:'Run a simulation and see how the system behaves over distance — no theory, just mechanics.',
+        sim_disclaimer:'The simulator does not predict winnings. It shows how distance changes the perception of outcomes.', sim_li_1:'how balance changes', sim_li_2:'how distance works', sim_li_3:'how outcomes are formed',
+        sim_btn:'Try demo course', sim_label:'Slot simulator', sim_spins:'Spins', sim_rtp_real:'Actual RTP', sim_autospin:'Autospin 25x', sim_stop:'Stop', sim_balance:'Balance', sim_bet:'Bet', sim_win:'Win', sim_spin:'SPIN', sim_msg_start:'Press SPIN and see how short distance creates the illusion of randomness.', sim_msg_big:'A big win on a short distance looks like a "system", but it is just variance.', sim_msg_win:'There is a win, but a single event does not matter — distance does.', sim_msg_zero:'A zero win on a spin is a normal part of the model. The system works over distance.', c1_cta_btn:'Try demo course',
+        c1_back:'← Back to platform', c1_badge:'Foundation course · iGaming Education', c1_hero_title2:'how the system really works', c1_hero_text:'A learning program for those who want to understand not the myths about gambling, but the real logic of iGaming: math, economics, product architecture and systems thinking.', c1_stat1:'learning modules', c1_stat2:'structured lessons', c1_stat3:'main goal: see the system', c1_program_title:'Course program', c1_program_sub:'The course is built as a gradual transition from the basic math of play to strategic thinking and understanding of the product system.', c1_m1_title:'How the math of play works', c1_m1_desc:'Foundation module on randomness, RTP, house edge, variance and the main cognitive errors of the player.', c1_l1_sub:'Why it feels like you control the game', c1_l1_idea:'People believe in control where mathematical randomness rules.', c1_l2_sub:'What it is and how it really works', c1_l2_idea:'RTP is a statistic of the system, not a guarantee for the player.', c1_l3_sub:'How casinos really make money', c1_l3_idea:'Casinos earn from the mathematical edge, not from your loss.', c1_l4_sub:'Why anything is possible short-term', c1_l4_idea:'Short-distance chaos creates the illusion of a "system".', c1_l5_sub:'The most dangerous thinking error', c1_l5_idea:'After losses, a win does not become any closer.', c1_m2_title:'How iGaming makes money', c1_m2_desc:'Module on bonuses, VIP systems, retention, repeat deposits and the psychology of loss.', c1_l6_sub:'Why bonuses are almost never free', c1_l6_idea:'A bonus is a retention tool, not a gift.', c1_l7_sub:'Why High Rollers are the most valuable', c1_l7_idea:'Casinos earn from behavior, not from the masses.', c1_l8_sub:'Why you are always brought back', c1_l8_idea:'iGaming is a retention business, not an entertainment business.', c1_l9_sub:'How the psychology of repeat deposit works', c1_l9_idea:'After the first deposit a person enters a completely different logic.', c1_l10_sub:'Why "winning it back" is a trap', c1_l10_idea:'The emotion of a loss is stronger than logic.', c1_m3_title:'How the system is built from the inside', c1_m3_desc:'Module on providers, the platform, anti-fraud, CRM, segmentation, affiliate model and LTV.', c1_l11_sub:'Who really controls the game', c1_l11_idea:'Operator ≠ provider ≠ platform.', c1_l12_sub:'How the system protects itself from the player', c1_l12_idea:'The platform also "plays" against abuse.', c1_l13_sub:'Why different people see different product', c1_l13_idea:'You see not a "website" but a personalized system.', c1_l14_sub:'Who brings the players and why it is expensive', c1_l14_idea:'Traffic is the real currency of iGaming.', c1_l15_sub:'Why one player can be worth thousands of dollars', c1_l15_idea:'Value is in behavior over distance, not in the deposit.', c1_m4_title:'How to think not like a player', c1_m4_desc:'The final module shapes systems vision, discipline and decision architecture.', c1_l16_sub:'How to see the model, not the result', c1_l16_idea:'Transition from emotional perception to systems analysis.', c1_l17_sub:'How to make decisions without self-deception', c1_l17_idea:'Working with probabilities, distance and risk assessment.', c1_l18_sub:'Why emotions are the main enemy', c1_l18_idea:'Controlling the emotional impact on financial decisions.', c1_l19_sub:'How professionals think differently', c1_l19_idea:'The structure of strong decisions and professional logic of assessing the situation.', c1_l20_sub:'Full map of iGaming thinking', c1_l20_idea:'Integration of all course models into a single thinking system.', c1_out_title:'What the student gets', c1_out_sub:'The course does not sell the illusion of winning. It gives a fundamental understanding of how the system works.', c1_res_title:'Learning outcome', c1_res_1:'Understanding the math logic of play: RTP, house edge, variance.', c1_res_2:'The ability to tell randomness from pattern.', c1_res_3:'Understanding the economics of bonuses, retention and repeat deposits.', c1_res_4:'A baseline view of the product architecture of an iGaming platform.', c1_res_5:'Transition from emotional thinking to systems analysis.', c1_fmt_title:'Course format', c1_fmt_1:'Video lessons with visual explanations.', c1_fmt_2:'Practical cases and real product examples.', c1_fmt_3:'Quizzes to check understanding.', c1_fmt_4:'Decision simulators and control blocks.', c1_fmt_5:'A final map of iGaming thinking.', c1_cta_title:'Not to learn to play. To learn to see the system.', c1_cta_text:'Foundation course for those who want to understand how iGaming works at the level of math, behavior, product and decisions.',
+        cs_title:'Courses', cs_sub:'Learning is built step by step: from a basic understanding of iGaming to deeper work with math, product and analytics.',
+        cs1_pill:'Course 1', cs1_status:'Available', cs1_title:'Introduction to iGaming: how the system really works', cs1_desc:'Foundation course on the math of play, iGaming economics, product logic and systems thinking.', cs1_meta1:'4 modules', cs1_meta2:'20 lessons', cs1_meta3:'Foundation', cs1_btn:'Open program',
+        cs2_pill:'Course 2', cs2_status:'Soon', cs2_title:'RTP, Odds & Probability', cs2_desc:'Advanced course on probabilities, statistical distance, RTP models, and outcome analytics.', cs2_meta1:'Advanced Core', cs2_meta2:'In development', cs2_btn:'Coming soon',
+        cs3_pill:'Course 3', cs3_status:'Soon', cs3_title:'iGaming Product & Analytics', cs3_desc:'Practical course on metrics, CRM, segmentation, retention, LTV and product analytics.', cs3_meta1:'Product', cs3_meta2:'In development', cs3_btn:'Coming soon',
+        aud_title:'Who this is for',
+        aud_sub:'The platform is suitable both for people who are just discovering the industry and for those who want to enter it professionally.',
+        a1_t:'Beginners', a1_d:'You want to understand how everything works and stop seeing it as chaos.',
+        a2_t:'People who want to see the logic', a2_d:'You want to stop thinking through luck and start seeing the logic of the system, product, and decisions.',
+        a3_t:'Career in iGaming', a3_d:'You want to enter the industry, grow, and understand it from the inside.',
+        a4_t:'Practitioners', a4_d:'You want to do more than read — you want to see how the system behaves in real scenarios.',
+        faq_sub:'Answers to the key questions people usually have before starting.',
+        f1_q:'Who is this platform for?', f1_a:'For beginners, people who want to work in iGaming, and those who want to understand the system professionally.',
+        f2_q:'Does this teach gambling?', f2_a:'No. Analytix does not teach you to gamble or beat the system. The platform explains how iGaming works through mathematics, product logic, and user behavior.',
+        f3_q:'Do I need prior experience?', f3_a:'No. The foundation track is designed to start from zero and gradually move into more advanced topics.',
+        f4_q:'What will I get after completing it?', f4_a:'An understanding of the industry, hands-on simulator practice, and a foundation for further learning or entering iGaming.',
+        cta_title:'Take the first course for free', cta_sub:'Leave a request and we will open access to the Analytix learning environment.', lms_note:'No spam. Only LMS access, platform updates, and materials about iGaming.', lms_success:'✅ Request received. Next step: check your email or Telegram.',
+        cta_btn:'Try demo course', cta_btn_open:'Try demo course', mobile_cta:'Try demo course', footer_stat_1_value:'10,000+', footer_stat_1_label:'students already with us', footer_stat_2_value:'50+', footer_stat_2_label:'practical courses', footer_stat_3_value:'200+', footer_stat_3_label:'practical tasks', footer_stat_4_value:'4.9/5', footer_stat_4_label:'average course rating', footer_link_about:'About', footer_link_courses:'Courses', footer_link_faq:'FAQ', footer:'© 2026 — System learning platform for iGaming'
+      }
+    };
+
+    const seoMeta = {
+      uk: {
+        title: "Analytix — освітня платформа про iGaming. Перший курс безкоштовно | UA · RO · MD",
+        description: "Analytix — системне навчання про iGaming для України, Румунії та Молдови. RTP, House Edge, volatility, бізнес-логіка операторів. Перший курс безкоштовно.",
+        ogTitle: "Analytix — iGaming як система. Перший курс безкоштовно",
+        ogDescription: "Системне навчання про iGaming для України, Румунії та Молдови. 4 модулі, 20 уроків про RTP, House Edge, volatility, бізнес-логіку операторів. Інтерактивний симулятор слоту, реальні кейси, кар'єрний трек у індустрії. Перший курс — безкоштовно. Не вчимо грати — пояснюємо, як iGaming працює зсередини.",
+        ogLocale: "uk_UA"
+      },
+      en: {
+        title: "Analytix — iGaming Education Platform. First course free | UA · RO · MD",
+        description: "Analytix — systems-thinking education about iGaming for Ukraine, Romania and Moldova. RTP, House Edge, volatility, operator business logic. First course free.",
+        ogTitle: "Analytix — iGaming as a system. First course free",
+        ogDescription: "Systems-thinking education about iGaming for Ukraine, Romania and Moldova. 4 modules, 20 lessons on RTP, House Edge, volatility and operator business logic. Interactive slot simulator, real cases, career track in the industry. First course — free. We don't teach gambling — we explain how iGaming works from the inside.",
+        ogLocale: "en_US"
+      }
+    };
+    function setMeta(sel, attr, value){
+      const el = document.querySelector(sel);
+      if(el && value) el.setAttribute(attr, value);
+    }
+    function applyLang(lang){
+      document.documentElement.lang = lang;
+      const dict = translations[lang];
+      if(!dict) return;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if(dict[key]) el.innerHTML = dict[key];
+      });
+      // Також обходимо shadow DOM курсу 1, якщо вже примонтований
+      const shadowHost = document.getElementById('course1-shadow-root');
+      if(shadowHost && shadowHost.shadowRoot){
+        shadowHost.shadowRoot.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if(dict[key]) el.innerHTML = dict[key];
+        });
+      }
+      const meta = seoMeta[lang];
+      if(meta){
+        document.title = meta.title;
+        setMeta('meta[name="description"]', 'content', meta.description);
+        setMeta('meta[property="og:title"]', 'content', meta.ogTitle);
+        setMeta('meta[property="og:description"]', 'content', meta.ogDescription);
+        setMeta('meta[property="og:locale"]', 'content', meta.ogLocale);
+        setMeta('meta[name="twitter:title"]', 'content', meta.ogTitle);
+        setMeta('meta[name="twitter:description"]', 'content', meta.ogDescription);
+        // Перемикання og:image під мову
+        const ogImg = lang === 'uk'
+          ? location.origin + '/og-image-uk.png'
+          : location.origin + '/og-image.png';
+        setMeta('meta[property="og:image"]',            'content', ogImg);
+        setMeta('meta[property="og:image:secure_url"]', 'content', ogImg);
+        setMeta('meta[name="twitter:image"]',           'content', ogImg);
+      }
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      if(typeof setAutoSpinButton === 'function') setAutoSpinButton();
+    }
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+
+
+    function goHome(){
+      document.body.classList.remove('viewing-course');
+      history.pushState(null, '', window.location.pathname);
+      const top = document.querySelector('.hero');
+      if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
+      routePage();
+    }
+
+    document.querySelectorAll('[data-home-link]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        goHome();
+      });
+    });
+
+    function mountCourse1(){
+      const host = document.getElementById('course1-shadow-root');
+      const template = document.getElementById('course1-template');
+      if(!host || !template || host.shadowRoot) return;
+      const shadow = host.attachShadow({mode:'open'});
+      shadow.appendChild(template.content.cloneNode(true));
+        // Застосувати поточну мову до щойно вмонтованого shadow DOM
+        if(typeof applyLang === 'function') applyLang(document.documentElement.lang || 'en');
+      shadow.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if(!link) return;
+        if(link.hasAttribute('data-course-home')){
+          event.preventDefault();
+          goHome();
+          return;
+        }
+        // Bridge: course CTA → main LMS modal with overridden UTM
+        if(link.hasAttribute('data-course-cta-trigger')){
+          event.preventDefault();
+          const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+          const overrides = {};
+          utmKeys.forEach(k => {
+            const v = link.getAttribute(k);
+            if(v !== null) overrides[k] = v;
+          });
+          goHome();
+          setTimeout(() => {
+            const mainBtn = document.querySelector('button[data-lead-trigger="121766"][utm_content="cta_box_main"]');
+            if(!mainBtn) return;
+            const originals = {};
+            Object.keys(overrides).forEach(k => {
+              originals[k] = mainBtn.getAttribute(k);
+              mainBtn.setAttribute(k, overrides[k]);
+            });
+            mainBtn.click();
+            setTimeout(() => {
+              Object.keys(originals).forEach(k => {
+                if(originals[k] === null) mainBtn.removeAttribute(k);
+                else mainBtn.setAttribute(k, originals[k]);
+              });
+            }, 1500);
+          }, 500);
+        }
+      });
+    }
+
+    function routePage(){
+      const hash = (window.location.hash || '').replace('#','');
+      if(hash === 'course-1'){
+        mountCourse1();
+        document.body.classList.add('viewing-course');
+        window.scrollTo({top:0, behavior:'smooth'});
+      } else {
+        document.body.classList.remove('viewing-course');
+      }
+    }
+
+    document.querySelectorAll('[data-open-course="1"]').forEach(btn => {
+      btn.addEventListener('click', () => setTimeout(routePage, 0));
+    });
+    window.addEventListener('hashchange', routePage);
+    routePage();
+
+
+    const simState = {
+      balance: 1250,
+      bet: 20,
+      spins: 0,
+      totalBet: 0,
+      totalWin: 0,
+      history: [1250],
+      autoSpinActive: false,
+      autoSpinRemaining: 0,
+      autoSpinTimer: null,
+      symbols: ['A', 'K', 'Q', '7', '◆', '★']
+    };
+
+    function formatMoney(value){
+      return `${Math.round(value).toLocaleString('uk-UA')} ₴`;
+    }
+
+    function drawSimChart(){
+      const chart = document.getElementById('simChart');
+      if(!chart) return;
+
+      const values = simState.history.slice(-28);
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+      const range = Math.max(1, max - min);
+      const width = 800;
+      const height = 120;
+
+      const points = values.map((value, index) => {
+        const x = values.length === 1 ? 0 : (index / (values.length - 1)) * width;
+        const y = height - ((value - min) / range) * (height - 18) - 9;
+        return `${x},${y}`;
+      }).join(' ');
+
+      chart.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">
+          <polyline points="${points}" fill="none" stroke="url(#simLineGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="simLineGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2D7FF9"/>
+              <stop offset="100%" stop-color="#00FFA3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      `;
+    }
+
+    function updateSimulatorUI(win = 0){
+      const balance = document.getElementById('simBalance');
+      const bet = document.getElementById('simBet');
+      const result = document.getElementById('simWin');
+      const spinCount = document.getElementById('spinCount');
+      const actualRtp = document.getElementById('actualRtp');
+      const message = document.getElementById('simMessage');
+
+      if(balance) balance.textContent = formatMoney(simState.balance);
+      if(bet) bet.textContent = formatMoney(simState.bet);
+      if(result) result.textContent = formatMoney(win);
+      if(spinCount) spinCount.textContent = simState.spins.toString();
+      if(actualRtp) actualRtp.textContent = simState.totalBet ? `${Math.round((simState.totalWin / simState.totalBet) * 100)}%` : '—';
+
+      if(message){
+        const lang = document.documentElement.lang || 'en';
+        const dict = (translations && translations[lang]) || {};
+        if(simState.spins === 0){
+          message.textContent = dict.sim_msg_start || 'Press SPIN and see how short distance creates the illusion of randomness.';
+        } else if(win > simState.bet * 5){
+          message.textContent = dict.sim_msg_big || 'A big win on a short distance looks like a "system", but it is just variance.';
+        } else if(win > 0){
+          message.textContent = dict.sim_msg_win || 'There is a win, but a single event does not matter — distance does.';
+        } else {
+          message.textContent = dict.sim_msg_zero || 'A zero win on a spin is a normal part of the model. The system works over distance.';
+        }
+      }
+
+      drawSimChart();
+    }
+
+
+    function setAutoSpinButton(){
+      const autoButton = document.getElementById('autoSpinButton');
+      if(!autoButton) return;
+      const lang = document.documentElement.lang;
+      if(simState.autoSpinActive){
+        autoButton.textContent = lang === 'en' ? `Stop (${simState.autoSpinRemaining})` : `Зупинити (${simState.autoSpinRemaining})`;
+      } else {
+        autoButton.textContent = lang === 'en' ? 'Autospin 25x' : 'Автоспін 25x';
+      }
+    }
+
+    function stopAutoSpin(){
+      simState.autoSpinActive = false;
+      simState.autoSpinRemaining = 0;
+      if(simState.autoSpinTimer) clearTimeout(simState.autoSpinTimer);
+      simState.autoSpinTimer = null;
+      const spinButton = document.getElementById('spinButton');
+      if(spinButton) spinButton.disabled = false;
+      setAutoSpinButton();
+    }
+
+
+    function runSlotSpin(isAuto = false){
+      const button = document.getElementById('spinButton');
+      const slots = [...document.querySelectorAll('[data-slot]')];
+      if(!button || !slots.length) return;
+
+      button.disabled = true;
+      slots.forEach(slot => slot.classList.add('spinning'));
+
+      setTimeout(() => {
+        const symbols = slots.map(() => simState.symbols[Math.floor(Math.random() * simState.symbols.length)]);
+        symbols.forEach((symbol, index) => { slots[index].textContent = symbol; });
+
+        let multiplier = 0;
+        const allSame = symbols.every(symbol => symbol === symbols[0]);
+        const twoSame = new Set(symbols).size === 2;
+
+        if(allSame) multiplier = symbols[0] === '7' ? 50 : 12;
+        else if(twoSame) multiplier = 2;
+
+        const win = simState.bet * multiplier;
+        simState.spins += 1;
+        simState.totalBet += simState.bet;
+        simState.totalWin += win;
+        simState.balance = simState.balance - simState.bet + win;
+        simState.history.push(simState.balance);
+
+        updateSimulatorUI(win);
+        slots.forEach(slot => slot.classList.remove('spinning'));
+
+        if(simState.autoSpinActive){
+          simState.autoSpinRemaining -= 1;
+          setAutoSpinButton();
+          if(simState.autoSpinRemaining > 0){
+            simState.autoSpinTimer = setTimeout(() => runSlotSpin(true), 420);
+          } else {
+            stopAutoSpin();
+          }
+        } else {
+          button.disabled = false;
+        }
+      }, 320);
+    }
+
+    const spinButton = document.getElementById('spinButton');
+    const autoSpinButton = document.getElementById('autoSpinButton');
+    if(spinButton){
+      spinButton.addEventListener('click', () => runSlotSpin(false));
+      updateSimulatorUI();
+    }
+    if(autoSpinButton){
+      autoSpinButton.addEventListener('click', () => {
+        if(simState.autoSpinActive){
+          stopAutoSpin();
+          return;
+        }
+        simState.autoSpinActive = true;
+        simState.autoSpinRemaining = 25;
+        setAutoSpinButton();
+        runSlotSpin(true);
+      });
+      setAutoSpinButton();
+    }
+
+
+
+    // Реєстраційна форма замінена на сторонній віджет Kwiga (див. розмітку секції #lms-registration).
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, {threshold: .12});
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    applyLang('en');
+
+
+    /* =============================================================
+       LEAD CAPTURE → VIDEO → LMS REGISTRATION FLOW
+       v2: збір імені/email → перегляд відео → відкриття Kwiga
+       Щоб повернутись до старої версії — використати файл index-v1.html
+    ============================================================= */
+    const ANALYTIX_LEAD_FLOW = {
+      // 👇 БЕКЕНД ДЛЯ ЗБЕРЕЖЕННЯ ЗАЯВОК:
+      //   За замовчуванням — /api/leads.php (PHP-скрипт у папці /api/).
+      //   Альтернативи: Formspree "https://formspree.io/f/YOUR_ID",
+      //   Web3Forms, Cloudflare Pages Function тощо.
+      //   Якщо ендпоінт недоступний — заявки лишаються в localStorage
+      //   (ключ 'analytix_leads') і flow не блокується.
+      endpoint: '/api/leads.php',
+      // YouTube videoIds per language. Зміни тут, щоб поставити інші відео.
+      videoIds: {
+        uk: '8EQKvuN_l4g',
+        en: 'PeFaTuDhJG4'
+      },
+      // Через скільки секунд кнопка "Зареєструватись у LMS" розблоковується
+      // якщо YouTube IFrame API не зміг визначити старт відео (fallback).
+      videoUnlockFallbackSec: 25,
+      i18n: {
+        uk: {
+          step1_title: 'Пройти перший курс безкоштовно',
+          step1_sub: 'Залиш ім\'я та email — після цього відкриється перший урок із курсу. Без спаму.',
+          name_label: 'Ім\'я', name_ph: 'Як до тебе звертатись',
+          email_label: 'Email', email_ph: 'you@example.com',
+          submit_btn: 'Продовжити →',
+          submitting: 'Зберігаємо…',
+          error_email: 'Введи коректний email',
+          error_name: 'Ім\'я має містити щонайменше 2 символи',
+          error_save: 'Не вдалося зберегти. Спробуй ще раз.',
+          form_note: 'Без спаму. Тільки доступ до уроку і матеріали про iGaming.',
+          step2_title: 'Перший урок курсу',
+          step2_sub: 'Подивись відео — після старту відтворення розблокується кнопка реєстрації в LMS.',
+          progress_idle: 'Натисни «Play», щоб почати урок',
+          progress_playing: 'Відео відтворюється…',
+          progress_unlocked: '✓ Готово — переходь до реєстрації в LMS',
+          unlock_btn_locked: 'Зареєструватись у LMS',
+          unlock_btn_ready: 'Зареєструватись у LMS →',
+          back_link: '← Назад до форми'
+        },
+        en: {
+          step1_title: 'Take the first course for free',
+          step1_sub: 'Leave your name and email — the first lesson will open right after. No spam.',
+          name_label: 'Name', name_ph: 'How should we call you',
+          email_label: 'Email', email_ph: 'you@example.com',
+          submit_btn: 'Continue →',
+          submitting: 'Saving…',
+          error_email: 'Enter a valid email',
+          error_name: 'Name must be at least 2 characters',
+          error_save: 'Could not save. Please try again.',
+          form_note: 'No spam. Only lesson access and materials about iGaming.',
+          step2_title: 'First lesson of the course',
+          step2_sub: 'Watch the video — the LMS registration button will unlock once playback starts.',
+          progress_idle: 'Press «Play» to start the lesson',
+          progress_playing: 'Video is playing…',
+          progress_unlocked: '✓ Ready — proceed to LMS registration',
+          unlock_btn_locked: 'Register in LMS',
+          unlock_btn_ready: 'Register in LMS →',
+          back_link: '← Back to form'
+        }
+      }
+    };
+
+    const leadModalHTML = `
+      <div class="lead-modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+        <div class="lead-modal-card" id="leadModalCard">
+          <button type="button" class="lead-modal-close" id="leadModalClose" aria-label="Закрити">×</button>
+
+          <!-- Step 1: Lead form -->
+          <div class="lead-modal-step active" id="leadStep1">
+            <h3 class="lead-modal-title" id="leadModalTitle" data-lead-i18n="step1_title">Пройти перший курс безкоштовно</h3>
+            <p class="lead-modal-sub" data-lead-i18n="step1_sub"></p>
+            <form class="lead-form" id="leadForm" novalidate>
+              <div class="lead-form-field">
+                <label for="leadName" data-lead-i18n="name_label">Ім'я</label>
+                <input type="text" id="leadName" name="name" autocomplete="name" required minlength="2" maxlength="100" />
+              </div>
+              <div class="lead-form-field">
+                <label for="leadEmail" data-lead-i18n="email_label">Email</label>
+                <input type="email" id="leadEmail" name="email" autocomplete="email" required maxlength="200" />
+              </div>
+              <p class="lead-form-error" id="leadFormError"></p>
+              <button type="submit" class="btn btn-primary" id="leadSubmitBtn" data-lead-i18n="submit_btn">Продовжити →</button>
+              <p class="lead-form-note" data-lead-i18n="form_note"></p>
+            </form>
+          </div>
+
+          <!-- Step 2: Video -->
+          <div class="lead-modal-step" id="leadStep2">
+            <h3 class="lead-modal-title" data-lead-i18n="step2_title">Перший урок курсу</h3>
+            <p class="lead-modal-sub" data-lead-i18n="step2_sub"></p>
+            <div class="lead-video-wrap">
+              <div id="leadVideoPlayer"></div>
+            </div>
+            <p class="lead-video-progress" id="leadVideoProgress" data-lead-i18n="progress_idle"></p>
+            <div class="lead-video-cta">
+              <!-- Це справжня Kwiga-кнопка: data-widget-handler="121766" — Kwiga
+                   її підхоплює і відкриває свій widget. UTM ставимо динамічно. -->
+              <button type="button"
+                      class="btn btn-primary"
+                      id="leadUnlockBtn"
+                      disabled
+                      data-widget-handler="121766"
+                      utm_source="analytix_site"
+                      utm_medium="cta"
+                      utm_campaign="lms_registration"
+                      utm_content="post_video"
+                      data-lead-i18n="unlock_btn_locked">Зареєструватись у LMS</button>
+              <button type="button" class="lead-modal-back" id="leadBackBtn" data-lead-i18n="back_link">← Назад до форми</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', leadModalHTML);
+
+    const leadEls = {
+      modal: document.getElementById('leadModal'),
+      card: document.getElementById('leadModalCard'),
+      close: document.getElementById('leadModalClose'),
+      step1: document.getElementById('leadStep1'),
+      step2: document.getElementById('leadStep2'),
+      form: document.getElementById('leadForm'),
+      name: document.getElementById('leadName'),
+      email: document.getElementById('leadEmail'),
+      error: document.getElementById('leadFormError'),
+      submitBtn: document.getElementById('leadSubmitBtn'),
+      videoPlayerHost: document.getElementById('leadVideoPlayer'),
+      progress: document.getElementById('leadVideoProgress'),
+      unlockBtn: document.getElementById('leadUnlockBtn'),
+      backBtn: document.getElementById('leadBackBtn')
+    };
+
+    let leadState = {
+      utm: {},
+      ytPlayer: null,
+      ytApiLoading: false,
+      unlocked: false,
+      fallbackTimer: null
+    };
+
+    function leadI18n(){
+      const dict = ANALYTIX_LEAD_FLOW.i18n[document.documentElement.lang] || ANALYTIX_LEAD_FLOW.i18n.uk;
+      document.querySelectorAll('[data-lead-i18n]').forEach(el => {
+        const key = el.dataset.leadI18n;
+        if(dict[key] !== undefined){
+          if(el.tagName === 'INPUT') el.placeholder = dict[key];
+          else el.textContent = dict[key];
+        }
+      });
+      leadEls.name.placeholder = dict.name_ph || '';
+      leadEls.email.placeholder = dict.email_ph || '';
+    }
+
+    function leadShowStep(n){
+      leadEls.step1.classList.toggle('active', n === 1);
+      leadEls.step2.classList.toggle('active', n === 2);
+      leadEls.card.classList.toggle('lead-modal-card-wide', n === 2);
+      if(n === 2){
+        leadInitVideo();
+      }
+    }
+
+    function leadOpenModal(triggerEl){
+      // Захоплюємо UTM з натиснутої кнопки
+      leadState.utm = {};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
+        const v = triggerEl && triggerEl.getAttribute(k);
+        if(v) leadState.utm[k] = v;
+      });
+      // Перевіряємо: чи вже зберіг email раніше — пропустити крок 1
+      const existing = leadGetStored();
+      if(existing && existing.email && existing.name){
+        leadEls.name.value = existing.name;
+        leadEls.email.value = existing.email;
+      }
+      leadShowStep(1);
+      leadEls.modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => leadEls.name.focus(), 100);
+      leadI18n();
+    }
+
+    function leadCloseModal(){
+      leadEls.modal.classList.remove('open');
+      document.body.style.overflow = '';
+      // Зупиняємо відео, якщо було запущено
+      if(leadState.ytPlayer && typeof leadState.ytPlayer.stopVideo === 'function'){
+        try{ leadState.ytPlayer.stopVideo(); }catch(e){}
+      }
+      if(leadState.fallbackTimer){
+        clearTimeout(leadState.fallbackTimer);
+        leadState.fallbackTimer = null;
+      }
+    }
+
+    function leadGetStored(){
+      try{
+        const raw = localStorage.getItem('analytix_lead_current');
+        return raw ? JSON.parse(raw) : null;
+      }catch(e){ return null; }
+    }
+
+    function leadStoreLocally(lead){
+      try{
+        localStorage.setItem('analytix_lead_current', JSON.stringify(lead));
+        const all = JSON.parse(localStorage.getItem('analytix_leads') || '[]');
+        all.push(lead);
+        localStorage.setItem('analytix_leads', JSON.stringify(all));
+      }catch(e){ console.warn('localStorage недоступний', e); }
+    }
+
+    async function leadSaveToBackend(lead){
+      // Спроба надіслати на власний бекенд. Якщо ендпоінт відсутній або
+      // повертає 404 — це нормально для статичної версії, не блокуємо потік.
+      try{
+        const res = await fetch(ANALYTIX_LEAD_FLOW.endpoint, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(lead)
+        });
+        if(res.ok){
+          console.info('Lead saved to backend');
+          return true;
+        }
+        console.warn('Backend returned', res.status);
+      }catch(e){
+        console.warn('Backend not reachable:', e.message);
+      }
+      return false;
+    }
+
+    leadEls.form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const dict = ANALYTIX_LEAD_FLOW.i18n[document.documentElement.lang] || ANALYTIX_LEAD_FLOW.i18n.uk;
+      leadEls.error.classList.remove('show');
+
+      const name = leadEls.name.value.trim();
+      const email = leadEls.email.value.trim();
+
+      if(name.length < 2){
+        leadEls.error.textContent = dict.error_name; leadEls.error.classList.add('show'); return;
+      }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        leadEls.error.textContent = dict.error_email; leadEls.error.classList.add('show'); return;
+      }
+
+      const lead = {
+        name, email,
+        ...leadState.utm,
+        lang: document.documentElement.lang,
+        url: location.href,
+        referrer: document.referrer || '',
+        timestamp: new Date().toISOString()
+      };
+
+      leadEls.submitBtn.disabled = true;
+      leadEls.submitBtn.textContent = dict.submitting;
+
+      leadStoreLocally(lead);
+      await leadSaveToBackend(lead);
+
+      leadEls.submitBtn.disabled = false;
+      leadEls.submitBtn.textContent = dict.submit_btn;
+
+      leadShowStep(2);
+    });
+
+    function leadInitVideo(){
+      const dict = ANALYTIX_LEAD_FLOW.i18n[document.documentElement.lang] || ANALYTIX_LEAD_FLOW.i18n.uk;
+      leadEls.progress.textContent = dict.progress_idle;
+      leadEls.progress.classList.remove('ready');
+      leadEls.unlockBtn.disabled = true;
+      leadState.unlocked = false;
+
+      // ─────────────────────────────────────────────────────────────
+      // ВАЖЛИВО: YouTube IFrame API не працює з file:// протоколу
+      // (вимагає реальний origin для cookies + cross-origin postMessage).
+      // Якщо сайт відкритий локально як file://, показуємо чітке
+      // повідомлення і не намагаємось завантажити YouTube — на проді
+      // (HTTP/HTTPS) все працює нормально.
+      // ─────────────────────────────────────────────────────────────
+      if(location.protocol === 'file:'){
+        leadEls.videoPlayerHost.innerHTML =
+          '<div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:#e5e7eb;background:rgba(0,0,0,.6);">' +
+            '<div style="max-width:420px;">' +
+              '<div style="font-size:36px;margin-bottom:14px;">⚙️</div>' +
+              '<div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.35;">Локальний режим (file://)</div>' +
+              '<div style="font-size:14px;color:#a0a7b8;line-height:1.6;">' +
+                'YouTube блокує вбудовування відео при відкритті файлу напряму з диска. ' +
+                'На реальному хостингу (analytix.academy) плеєр працює коректно.<br><br>' +
+                'Локально для тесту запусти простий HTTP-сервер у папці проєкту:<br>' +
+                '<code style="display:inline-block;margin-top:8px;padding:8px 12px;background:rgba(0,255,163,.08);border:1px solid rgba(0,255,163,.25);border-radius:8px;color:#00ffa3;font-family:monospace;font-size:13px;">python3 -m http.server 8080</code><br>' +
+                '<span style="font-size:13px;">і відкрий <code style="color:#00ffa3;">http://localhost:8080</code></span>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        // Розблоковуємо кнопку одразу, щоб локально можна було пройти flow без відео
+        leadUnlockButton('file-protocol');
+        return;
+      }
+
+      // Завантажуємо YouTube IFrame API один раз
+      if(!window.YT || !window.YT.Player){
+        if(!leadState.ytApiLoading){
+          leadState.ytApiLoading = true;
+          window.onYouTubeIframeAPIReady = leadCreatePlayer;
+          const s = document.createElement('script');
+          s.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(s);
+        }
+      } else {
+        leadCreatePlayer();
+      }
+
+      // Fallback на випадок, якщо YT API недоступний (блокування рекламою тощо)
+      if(leadState.fallbackTimer) clearTimeout(leadState.fallbackTimer);
+      leadState.fallbackTimer = setTimeout(() => {
+        if(!leadState.unlocked) leadUnlockButton();
+      }, ANALYTIX_LEAD_FLOW.videoUnlockFallbackSec * 1000);
+    }
+
+    function leadCurrentVideoId(){
+      const lang = document.documentElement.lang || 'en';
+      const ids = ANALYTIX_LEAD_FLOW.videoIds || {};
+      return ids[lang] || ids.en || ids.uk || '';
+    }
+
+    function leadCreatePlayer(){
+      // Видаляємо попередній плеєр якщо існує
+      leadEls.videoPlayerHost.innerHTML = '';
+      const playerDiv = document.createElement('div');
+      playerDiv.id = 'leadYtPlayer_' + Date.now();
+      leadEls.videoPlayerHost.appendChild(playerDiv);
+
+      // origin потрібен YouTube API для security; пропускаємо для file://
+      const isHttp = location.protocol.startsWith('http');
+
+      try {
+        leadState.ytPlayer = new YT.Player(playerDiv.id, {
+          videoId: leadCurrentVideoId(),
+          width: '100%', height: '100%',
+          playerVars: {
+            modestbranding: 1,
+            rel: 0,
+            controls: 1,
+            fs: 1,
+            playsinline: 1,
+            iv_load_policy: 3,
+            disablekb: 0,
+            ...(isHttp ? { origin: location.origin } : {})
+          },
+          events: {
+            'onReady': () => {/* ready */},
+            'onStateChange': (e) => {
+              // YT.PlayerState: PLAYING = 1, ENDED = 0
+              if(e.data === 1 || e.data === 0){
+                leadUnlockButton(e.data === 1 ? 'playing' : 'ended');
+              }
+            },
+            'onError': (e) => {
+              // YT error codes: 2 invalid param, 5 HTML5 error,
+              // 100 video not found, 101/150 embedding disabled.
+              // У будь-якому випадку → fallback на простий iframe.
+              console.warn('YouTube Player error code:', e.data);
+              leadFallbackIframe();
+            }
+          }
+        });
+      } catch(err){
+        console.warn('YT player init failed', err);
+        leadFallbackIframe();
+      }
+    }
+
+    // Fallback: коли YouTube API повертає помилку (host issue, embed restriction
+    // тощо), показуємо звичайний iframe без API. Кнопка LMS розблокується
+    // через fallback-таймер у leadInitVideo().
+    function leadFallbackIframe(){
+      leadEls.videoPlayerHost.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      const params = 'modestbranding=1&rel=0&controls=1&playsinline=1&iv_load_policy=3';
+      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(leadCurrentVideoId()) + '?' + params;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.title = 'Analytix — перший урок курсу';
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+      leadEls.videoPlayerHost.appendChild(iframe);
+    }
+
+    function leadUnlockButton(reason){
+      if(leadState.unlocked) return;
+      leadState.unlocked = true;
+      const dict = ANALYTIX_LEAD_FLOW.i18n[document.documentElement.lang] || ANALYTIX_LEAD_FLOW.i18n.uk;
+      leadEls.unlockBtn.disabled = false;
+      leadEls.unlockBtn.textContent = dict.unlock_btn_ready;
+      leadEls.progress.textContent = dict.progress_unlocked;
+      leadEls.progress.classList.add('ready');
+      // Підставляємо UTM з кнопки, яка ініціювала потік (override default)
+      Object.entries(leadState.utm).forEach(([k, v]) => {
+        leadEls.unlockBtn.setAttribute(k, v);
+      });
+    }
+
+    leadEls.close.addEventListener('click', leadCloseModal);
+    leadEls.backBtn.addEventListener('click', () => leadShowStep(1));
+    leadEls.modal.addEventListener('click', (e) => {
+      if(e.target === leadEls.modal) leadCloseModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && leadEls.modal.classList.contains('open')) leadCloseModal();
+    });
+
+    // Кнопка LMS — Kwiga сам відкриє свій widget; нам залишається лише закрити нашу модалку
+    leadEls.unlockBtn.addEventListener('click', () => {
+      if(leadState.unlocked) setTimeout(leadCloseModal, 200);
+    });
+
+    // Підключаємо всі CTA-кнопки з data-lead-trigger
+    function bindLeadTriggers(){
+      document.querySelectorAll('[data-lead-trigger="121766"]').forEach(btn => {
+        if(btn.dataset.leadBound) return;
+        btn.dataset.leadBound = '1';
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          leadOpenModal(btn);
+        });
+      });
+    }
+    bindLeadTriggers();
+
+    // Локалізація модалки при зміні мови
+    const _origApplyLang = applyLang;
+    applyLang = function(lang){
+      _origApplyLang(lang);
+      leadI18n();
+    };
+
+    leadI18n();
+  </script>
+</body>
+</html>

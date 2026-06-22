@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ───── Головна (UA) ───── -->
+  <url>
+    <loc>https://analytix.academy/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk"     href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="uk-UA"  href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="en"     href="https://analytix.academy/en/"/>
+    <xhtml:link rel="alternate" hreflang="ro"     href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-RO"  href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-MD"  href="https://analytix.academy/ro-md/"/>
+    <xhtml:link rel="alternate" hreflang="ru"     href="https://analytix.academy/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://analytix.academy/"/>
+    <image:image>
+      <image:loc>https://analytix.academy/og-image.png</image:loc>
+      <image:title>Analytix — освітня платформа про iGaming</image:title>
+      <image:caption>Analytix — RTP, House Edge, volatility і бізнес-логіка iGaming. UA · RO · MD</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ───── EN ───── -->
+  <url>
+    <loc>https://analytix.academy/en/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk"     href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="en"     href="https://analytix.academy/en/"/>
+    <xhtml:link rel="alternate" hreflang="ro"     href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-MD"  href="https://analytix.academy/ro-md/"/>
+    <xhtml:link rel="alternate" hreflang="ru"     href="https://analytix.academy/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://analytix.academy/"/>
+    <image:image>
+      <image:loc>https://analytix.academy/og-image.png</image:loc>
+      <image:title>Analytix — iGaming Education Platform</image:title>
+      <image:caption>Analytix — RTP, House Edge, volatility and iGaming business logic. UA · RO · MD</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ───── RO (Romania) ───── -->
+  <url>
+    <loc>https://analytix.academy/ro/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk"     href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="en"     href="https://analytix.academy/en/"/>
+    <xhtml:link rel="alternate" hreflang="ro"     href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-RO"  href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-MD"  href="https://analytix.academy/ro-md/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://analytix.academy/"/>
+    <image:image>
+      <image:loc>https://analytix.academy/og-image.png</image:loc>
+      <image:title>Analytix — Platforma de educație iGaming</image:title>
+      <image:caption>Cursuri despre RTP, House Edge, volatilitate și logica de business iGaming</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ───── RO-MD (Moldova) ───── -->
+  <url>
+    <loc>https://analytix.academy/ro-md/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk"     href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="en"     href="https://analytix.academy/en/"/>
+    <xhtml:link rel="alternate" hreflang="ro"     href="https://analytix.academy/ro/"/>
+    <xhtml:link rel="alternate" hreflang="ro-MD"  href="https://analytix.academy/ro-md/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://analytix.academy/"/>
+  </url>
+
+  <!-- ───── RU (Україна, частково Молдова) ───── -->
+  <url>
+    <loc>https://analytix.academy/ru/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk"     href="https://analytix.academy/"/>
+    <xhtml:link rel="alternate" hreflang="ru"     href="https://analytix.academy/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://analytix.academy/"/>
+  </url>
+
+  <!-- ───── Курси / якірні секції лендинга ───── -->
+  <url>
+    <loc>https://analytix.academy/#course-1</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/#about</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/#courses</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/#simulator</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/#faq</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/#lms-registration</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ───── Допоміжні файли для AI ───── -->
+  <url>
+    <loc>https://analytix.academy/llms.txt</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://analytix.academy/llms-full.txt</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

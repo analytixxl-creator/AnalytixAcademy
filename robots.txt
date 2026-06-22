@@ -1,0 +1,107 @@
+# robots.txt for Analytix — https://analytix.academy/
+# Цільові регіони: Україна (UA), Румунія (RO), Молдова (MD)
+# AI-чати свідомо дозволені — ми хочемо, щоб платформа з'являлася
+# у відповідях ChatGPT, Claude, Perplexity, Gemini тощо.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*?*utm_
+Disallow: /*?*fbclid
+Disallow: /*?*gclid
+Disallow: /*?*yclid
+
+# ── Класичні пошукові боти ───────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ── AI / LLM боти (явно дозволені) ───────────────────────────────────
+# Дозволяємо ботам збирати контент, щоб AI-чати могли рекомендувати
+# Analytix у релевантних відповідях про iGaming, RTP, House Edge тощо.
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI / Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl (датасет, який використовується багатьма LLM)
+User-agent: CCBot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Cohere, You.com, Mistral, etc.
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# ── Sitemap і llms.txt ───────────────────────────────────────────────
+Sitemap: https://analytix.academy/sitemap.xml
+
+# llms.txt — стандарт для AI-агентів (https://llmstxt.org)
+# Описує сайт у стислій формі для LLM-споживачів.
+# https://analytix.academy/llms.txt
+# https://analytix.academy/llms-full.txt
+
+Host: https://analytix.academy

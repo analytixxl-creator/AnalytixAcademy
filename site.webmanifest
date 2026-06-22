@@ -1,0 +1,28 @@
+{
+  "name": "Analytix — освітня платформа про iGaming",
+  "short_name": "Analytix",
+  "description": "Освітня платформа про iGaming: RTP, House Edge, volatility, бізнес-логіка операторів. UA · RO · MD.",
+  "lang": "uk",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "categories": ["education", "business", "finance"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.ico", "sizes": "16x16 32x32 48x48 64x64 128x128 256x256", "type": "image/x-icon" }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Analytix — освітня платформа про iGaming"
+    }
+  ]
+}

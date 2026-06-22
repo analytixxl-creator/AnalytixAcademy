@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANALYTIX — RTP Spin Simulator</title>
+  <style>
+    :root{
+      --bg:#05070d;
+      --panel:rgba(255,255,255,.045);
+      --panel-2:rgba(255,255,255,.026);
+      --line:rgba(255,255,255,.09);
+      --green:#00ff88;
+      --green-2:#38ffb2;
+      --green-soft:rgba(0,255,136,.12);
+      --red:#ff4d57;
+      --red-soft:rgba(255,77,87,.1);
+      --yellow:#ffd84d;
+      --blue:#23b7ff;
+      --purple:#b388ff;
+      --text:#eef2f7;
+      --muted:#9aa4b2;
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{
+      padding:10px;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(0,255,136,.14), transparent 26%),
+        radial-gradient(circle at 80% 12%, rgba(35,183,255,.10), transparent 28%),
+        linear-gradient(180deg,#07101a,#03050a 72%);
+    }
+
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    button:disabled{opacity:.42;cursor:not-allowed}
+
+    .toast{display:none;max-width:1480px;margin:0 auto 8px;padding:10px 14px;border:1px solid rgba(255,216,77,.34);border-radius:12px;background:rgba(255,216,77,.08);color:#ffe58a;font-size:13px}
+    .toast.show{display:block}
+
+    .sim{
+      max-width:1480px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:300px minmax(360px,1fr) 300px;
+      gap:10px;
+      align-items:start;
+    }
+    .panel{
+      min-width:0;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      box-shadow:0 14px 40px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .panelTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    h2{margin:0;font-size:16px;letter-spacing:-.02em}
+    h3{margin:0 0 8px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center}
+
+    .green{color:var(--green)}
+    .red{color:var(--red)}
+    .yellow{color:var(--yellow)}
+    .purple{color:var(--purple)}
+    .muted{color:var(--muted)}
+
+    /* Tooltips */
+    .info{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:14px;height:14px;border-radius:50%;
+      border:1px solid var(--line);font-size:9px;font-weight:900;
+      color:var(--muted);cursor:help;position:relative;margin-left:4px;
+      background:rgba(255,255,255,.04);
+    }
+    .info:hover{color:var(--text);border-color:var(--green);background:rgba(0,255,136,.1)}
+    .info::after{
+      content:attr(data-tip);
+      position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+      width:240px;padding:9px 11px;
+      background:#0a1018;border:1px solid var(--line);border-radius:8px;
+      color:var(--text);font-size:11.5px;font-weight:500;line-height:1.45;
+      z-index:100;pointer-events:none;
+      box-shadow:0 10px 30px rgba(0,0,0,.6);
+      white-space:normal;text-align:left;
+      opacity:0;visibility:hidden;transition:opacity .15s;
+    }
+    .info:hover::after{opacity:1;visibility:visible}
+
+    .control{margin:10px 0 12px}
+    .label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px;color:var(--muted);font-size:12px;font-weight:800}
+    .label .left{display:flex;align-items:center}
+    .label strong{color:var(--text);font-size:15px;white-space:nowrap}
+
+    input[type="range"]{width:100%;accent-color:var(--green)}
+    .ticks{display:flex;justify-content:space-between;margin-top:5px;color:var(--muted);font-size:11px}
+
+    .btnGrid{display:grid;gap:6px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+
+    .quickBtn,.smallBtn{min-width:0;padding:8px 6px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.045);color:var(--text);font-size:11.5px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .quickBtn.active{background:rgba(0,255,136,.22);border-color:rgba(0,255,136,.55);box-shadow:0 0 16px rgba(0,255,136,.13)}
+
+    .depositBox{padding:10px;margin-bottom:10px;border:1px solid rgba(0,255,136,.24);border-radius:12px;background:var(--green-soft)}
+    .depositRow{display:grid;grid-template-columns:minmax(0,110px) 1fr;gap:6px;align-items:center}
+    .stakeRow{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+    .depositInput,.stakeVal{width:100%;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.045);color:var(--text);font-size:15px;font-weight:950}
+    .stakeVal{text-align:center}
+
+    .primary,.ghost,.danger{min-width:0;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:950;white-space:nowrap}
+    .primary{border:0;background:linear-gradient(135deg,var(--green),var(--green-2));color:#02100a;box-shadow:0 14px 34px rgba(0,255,136,.22)}
+    .ghost{border:1px solid var(--line);background:rgba(255,255,255,.055);color:var(--text)}
+    .danger{border:1px solid rgba(255,77,87,.35);background:var(--red-soft);color:#ff9aa0}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+    .spinError{
+      display:none;
+      margin-top:8px;
+      padding:9px 11px;
+      border:1px solid rgba(255,77,87,.45);
+      border-radius:10px;
+      background:rgba(255,77,87,.12);
+      color:#ffb3b8;
+      font-size:12px;
+      font-weight:700;
+      line-height:1.35;
+      animation:shake .35s ease;
+      position:relative;
+    }
+    .spinError.show{display:block}
+    .spinError::before{
+      content:"";
+      position:absolute;
+      top:-6px;left:24px;
+      width:10px;height:10px;
+      background:rgba(255,77,87,.12);
+      border-left:1px solid rgba(255,77,87,.45);
+      border-top:1px solid rgba(255,77,87,.45);
+      transform:rotate(45deg);
+    }
+    @keyframes shake{
+      0%,100%{transform:translateX(0)}
+      25%{transform:translateX(-4px)}
+      75%{transform:translateX(4px)}
+    }
+
+    .metricGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}
+    @media(max-width:560px){.metricGrid{grid-template-columns:repeat(2,1fr)}}
+    .metric{min-width:0;padding:10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.035)}
+    .metric .name{margin-bottom:6px;color:var(--muted);font-size:10.5px;text-transform:uppercase;display:flex;align-items:center}
+    .metric .value{font-size:17px;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    .chartPanel{padding:12px;border:1px solid rgba(0,255,136,.14);border-radius:16px;background:linear-gradient(180deg,rgba(12,21,35,.86),rgba(5,8,14,.96))}
+    .chartTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+    select{padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.05);color:var(--text);font-size:12px}
+    .canvasWrap{position:relative;width:100%;aspect-ratio:16/8}
+    canvas{display:block;width:100%;height:100%}
+    .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;max-height:44px;overflow:hidden}
+    .chip{padding:5px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:11.5px;font-weight:900}
+    .chip.win{color:var(--green);border-color:rgba(0,255,136,.28);background:rgba(0,255,136,.1)}
+    .chip.loss{color:var(--red);border-color:rgba(255,77,87,.28);background:rgba(255,77,87,.08)}
+
+    .slotMachine{margin-top:10px;padding:10px;border:1px solid rgba(0,255,136,.16);border-radius:14px;background:linear-gradient(180deg,rgba(0,255,136,.055),rgba(255,255,255,.025));display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+    .reel{height:50px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:radial-gradient(circle at 50% 20%,rgba(0,255,136,.12),transparent 55%),rgba(0,0,0,.24);display:grid;place-items:center;font-size:26px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .reel.spin{animation:pop .22s ease}
+    @keyframes pop{0%{transform:scale(.92);filter:blur(1px)}100%{transform:scale(1);filter:blur(0)}}
+    .history{margin-top:10px;max-height:140px;overflow:auto;border:1px solid var(--line);border-radius:14px}
+    table{width:100%;border-collapse:collapse;font-size:12px}
+    th,td{padding:6px 7px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;white-space:nowrap}
+    th{position:sticky;top:0;background:rgba(255,255,255,.04);color:var(--muted);font-size:10.5px;text-transform:uppercase}
+
+    .backendCard{margin-bottom:9px;padding:10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.035)}
+    .backendCard.player{border-color:rgba(0,255,136,.22)}
+    .backendCard.casino{border-color:rgba(255,77,87,.22)}
+    .backendCard.operator{border-color:rgba(35,183,255,.28);background:rgba(35,183,255,.05)}
+    .backendCard .big{margin:4px 0 6px;font-size:20px;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .statList{display:grid;gap:6px;font-size:12px}
+    .stat{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}
+    .stat strong{color:var(--text);white-space:nowrap}
+
+    .footer{max-width:1480px;margin:10px auto 0;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;flex-wrap:wrap}
+    .footerActions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+
+    /* Modal */
+    .modalBackdrop{
+      display:none;position:fixed;inset:0;z-index:1000;
+      background:rgba(2,5,12,.78);backdrop-filter:blur(6px);
+      align-items:center;justify-content:center;padding:20px;
+    }
+    .modalBackdrop.show{display:flex}
+    .modal{
+      width:100%;max-width:920px;max-height:90vh;overflow-y:auto;
+      padding:22px;border-radius:18px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#0b1320,#070a12);
+      box-shadow:0 30px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.05);
+      animation:modalIn .25s ease;
+    }
+    @keyframes modalIn{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .modalHead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .modalHead h2{font-size:20px}
+    .modalClose{
+      width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
+      background:rgba(255,255,255,.05);color:var(--text);font-size:18px;line-height:1;
+    }
+    .mcMeta{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;
+      margin-bottom:16px;padding:10px;border:1px solid var(--line);border-radius:10px;
+      background:rgba(255,255,255,.025);font-size:12px;
+    }
+    .mcMeta .miniStat{display:flex;flex-direction:column;gap:2px}
+    .mcMeta .miniStat span{color:var(--muted);font-size:10.5px;text-transform:uppercase}
+    .mcMeta .miniStat strong{font-size:14px;font-weight:950}
+    .mcGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+    .mcCard{padding:11px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03)}
+    .mcCard h4{margin:0 0 8px;font-size:11px;color:var(--muted);text-transform:uppercase}
+    .mcCard .vBig{font-size:22px;font-weight:950}
+    .mcHistogram{
+      width:100%;height:220px;margin:14px 0;padding:10px;
+      border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25);
+      box-sizing:border-box;overflow:hidden;
+    }
+    .mcHistogram canvas{display:block;width:100%;height:100%}
+    @media(max-width:560px){.mcHistogram{height:200px}}
+    .mcRun{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end;margin-bottom:16px;
+    }
+    .mcRun label{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted);font-weight:800}
+    .mcRun input{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.05);color:var(--text);font-size:14px;font-weight:900}
+    .mcInsight{padding:11px 13px;border-radius:10px;border:1px solid rgba(0,255,136,.28);background:rgba(0,255,136,.06);color:var(--text);font-size:12.5px;line-height:1.5}
+    .mcInsight strong{color:var(--green)}
+    @media(max-width:640px){.mcGrid{grid-template-columns:1fr}.mcRun{grid-template-columns:1fr}}
+
+    /* Glossary */
+    .glossary{display:grid;gap:14px}
+    .glossSec{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+    .glossSec h3{color:var(--green);font-size:12.5px;letter-spacing:.04em;margin-bottom:10px}
+    .glossItem{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+    .glossItem:last-child{border-bottom:0;padding-bottom:0}
+    .glossItem strong{color:var(--blue);font-size:13px;display:block;margin-bottom:3px}
+    .glossItem .formula{color:var(--yellow);font-family:"SF Mono",Menlo,monospace;font-size:11.5px;background:rgba(255,216,77,.06);padding:2px 6px;border-radius:5px;margin-top:4px;display:inline-block}
+    .glossItem p{margin:3px 0 0;font-size:12.5px;line-height:1.5;color:var(--text)}
+
+    /* Tablet: 2 columns (controls top-full, chart center, ops right) */
+    @media(max-width:1200px){
+      .sim{grid-template-columns:280px 1fr;grid-template-areas:"left center" "left right"}
+      .sim > section:nth-child(1){grid-area:left}
+      .sim > section:nth-child(2){grid-area:center}
+      .sim > aside{grid-area:right}
+    }
+    /* Mobile / narrow iframe: single column */
+    @media(max-width:820px){
+      body{padding:8px}
+      .sim{grid-template-columns:1fr;grid-template-areas:"left" "center" "right"}
+      .footer{flex-direction:column;align-items:stretch}
+      .footerActions{display:grid;grid-template-columns:1fr 1fr}
+      .canvasWrap{aspect-ratio:16/9}
+    }
+  </style>
+</head>
+<body>
+  <div class="toast" id="toast"></div>
+
+  <main class="sim">
+    <!-- LEFT PANEL -->
+    <section class="panel">
+      <div class="panelTitle"><h2>Параметри симуляції</h2></div>
+
+      <div class="depositBox">
+        <div class="label"><span class="left">Депозит гравця<span class="info" data-tip="Сума коштів, яку гравець вносить на свій баланс. У реальному казино — через банківську карту, e-wallet або криптовалюту. Усі ставки списуються звідси, виграші — повертаються сюди.">i</span></span><strong id="totalDepositedOut">0.00 ₴</strong></div>
+        <div class="depositRow">
+          <input id="depositAmount" class="depositInput" type="number" min="10" max="10000" step="10" value="100" />
+          <button class="primary" id="depositBtn">+ Депозит</button>
+        </div>
+        <div class="btnGrid grid-3" style="margin-top:8px">
+          <button class="quickBtn" data-dep="100">+100₴</button>
+          <button class="quickBtn" data-dep="500">+500₴</button>
+          <button class="quickBtn" data-dep="1000">+1000₴</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="label"><span class="left">RTP<span class="info" data-tip="Return to Player — теоретичний відсоток ставок, що повертається гравцям у вигляді виграшів у довгостроковій перспективі (мільйони спінів). RTP 96% означає: казино утримує 4% (House Edge). У короткостроковій сесії фактичний RTP може дуже відрізнятися через дисперсію.">i</span></span><strong id="rtpOut">96%</strong></div>
+        <input id="rtp" type="range" min="85" max="98" value="96" step="1" />
+        <div class="ticks"><span>85%</span><span>92%</span><span>98%</span></div>
+      </div>
+
+      <div class="control">
+        <div class="label"><span class="left">Волатильність<span class="info" data-tip="Дисперсія виплат. Low — часті дрібні виграші, баланс плавно змінюється. V.High — рідкісні, але великі виграші, довгі програшні серії. RTP однаковий — змінюється лише ризик-профіль. Гравцям з малим банкролом краще Low, мисливцям за джекпотом — V.High.">i</span></span><strong id="volOut">Medium</strong></div>
+        <div class="btnGrid grid-4" id="volBtns">
+          <button class="quickBtn" data-val="low">Low</button>
+          <button class="quickBtn active" data-val="medium">Medium</button>
+          <button class="quickBtn" data-val="high">High</button>
+          <button class="quickBtn" data-val="veryHigh">V.High</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="label"><span class="left">Ставка за спін<span class="info" data-tip="Розмір ставки. Зазвичай від 0.10 до 100+ грошових одиниць. Bankroll management: рекомендується ставка ≈ 0.5–1% від депозиту для тривалої сесії. Велика ставка = швидше виграш або злив.">i</span></span><strong id="stakeOut">1.00 ₴</strong></div>
+        <div class="stakeRow">
+          <button class="smallBtn" id="stakeMinus">−</button>
+          <div class="stakeVal" id="stakeVal">1.00 ₴</div>
+          <button class="smallBtn" id="stakePlus">+</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="spinBtn">▶ СПІН</button>
+        <button class="ghost" id="autoBtn">⏱ AUTOSPIN</button>
+      </div>
+      <div class="spinError" id="spinError">⚠ Баланс недостатній. Поповни депозит, щоб зіграти.</div>
+
+      <div class="control">
+        <div class="label"><span class="left">Кількість autospin<span class="info" data-tip="Скільки спінів зіграти автоматично. 1000+ дозволяє побачити, як фактичний RTP сходиться до теоретичного — це закон великих чисел у дії.">i</span></span><strong id="autoCountOut">100</strong></div>
+        <div class="btnGrid grid-5" id="autoCounts">
+          <button class="quickBtn" data-val="10">10</button>
+          <button class="quickBtn" data-val="50">50</button>
+          <button class="quickBtn active" data-val="100">100</button>
+          <button class="quickBtn" data-val="500">500</button>
+          <button class="quickBtn" data-val="1000">1000</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="label"><span>Швидкість</span><strong id="speedOut">Нормально</strong></div>
+        <input id="speed" type="range" min="1" max="3" value="2" step="1" />
+        <div class="ticks"><span>Повільно</span><span>Нормально</span><span>Швидко</span></div>
+      </div>
+    </section>
+
+    <!-- CENTER PANEL -->
+    <section class="panel">
+      <div class="metricGrid">
+        <div class="metric"><div class="name">Спінів<span class="info" data-tip="Загальна кількість зіграних спінів у поточній сесії. У реальній аналітиці — це Bet Count, ключова метрика для оператора.">i</span></div><div class="value" id="spinsDone">0</div></div>
+        <div class="metric"><div class="name">Факт. RTP<span class="info" data-tip="Який % від ставок повернувся гравцю прямо зараз. На малій вибірці може сильно гуляти (40% або 250%). На дистанції 10k+ спінів — сходиться до теоретичного RTP.">i</span></div><div class="value yellow" id="actualRtp">0%</div></div>
+        <div class="metric"><div class="name">House Edge<span class="info" data-tip="Математична перевага казино = 100% − RTP. Це частка кожної ставки, яку в середньому залишає собі казино. Перераховується миттєво при зміні RTP.">i</span></div><div class="value red" id="houseEdge">4%</div></div>
+        <div class="metric"><div class="name">GGR<span class="info" data-tip="Gross Gaming Revenue — валовий ігровий дохід казино = Сума ставок − Сума виграшів. Це головна фінансова метрика iGaming-оператора, від якої рахуються податки, ліцензійні відрахування та маркетингові бюджети.">i</span></div><div class="value" id="ggrTop" style="color:var(--blue)">0.00 ₴</div></div>
+      </div>
+
+      <div class="chartPanel">
+        <div class="chartTop">
+          <h2 id="chartTitle">Баланс гравця</h2>
+          <select id="chartMode">
+            <option value="line">Баланс (лінія)</option>
+            <option value="bars">Спіни / результат</option>
+            <option value="convergence">RTP: теорія vs практика</option>
+          </select>
+        </div>
+        <div class="canvasWrap"><canvas id="chart" width="900" height="450"></canvas></div>
+        <div class="chips" id="lastSpins"></div>
+      </div>
+
+      <div class="slotMachine">
+        <div class="reel" id="reel1">🍒</div>
+        <div class="reel" id="reel2">🍋</div>
+        <div class="reel" id="reel3">🍇</div>
+        <div class="reel" id="reel4">🍉</div>
+        <div class="reel" id="reel5">⭐</div>
+      </div>
+
+      <div class="history">
+        <table>
+          <thead><tr><th>№</th><th>Ставка</th><th>Виграш</th><th>Результат</th><th>Баланс</th></tr></thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <aside class="panel">
+      <div class="panelTitle"><h2>Перспектива гравця</h2></div>
+
+      <div class="backendCard player">
+        <h3>Баланс гравця</h3>
+        <div class="big green" id="playerBalance">0.00 ₴</div>
+        <div class="stat"><span>Всього депозитів</span><strong id="playerDeposits">0.00 ₴</strong></div>
+        <div class="stat"><span>Net P/L</span><strong id="playerNet">0.00 ₴</strong></div>
+      </div>
+
+      <div class="backendCard casino">
+        <h3>Баланс казино</h3>
+        <div class="big red" id="casinoBalance">0.00 ₴</div>
+        <div class="stat"><span>Утримано</span><strong id="casinoHeld">0.00 ₴</strong></div>
+        <div class="stat"><span>Контрольна сума</span><strong id="totalBalance">0.00 ₴</strong></div>
+      </div>
+
+      <div class="panelTitle" style="margin-top:14px"><h2 class="purple">Перспектива оператора</h2></div>
+
+      <div class="backendCard operator">
+        <h3>GGR · Gross Gaming Revenue<span class="info" data-tip="GGR = Turnover − Payouts. Це валовий дохід казино з гравця ДО вирахування бонусів, ліцензійних відрахувань і податків. Головна метрика iGaming-операторів.">i</span></h3>
+        <div class="big" id="ggrValue" style="color:var(--blue)">0.00 ₴</div>
+        <div class="stat"><span>Bet Count</span><strong id="opBetCount">0</strong></div>
+        <div class="stat"><span>Turnover (Wagered)</span><strong id="opWagered">0.00 ₴</strong></div>
+        <div class="stat"><span>Payouts (Won)</span><strong id="opWon">0.00 ₴</strong></div>
+        <div class="stat"><span>NGR<span class="info" data-tip="Net Gaming Revenue = GGR − Bonuses − Fees. У спрощеній моделі без бонусів NGR ≈ GGR. У реальному житті NGR ≈ 60–80% від GGR.">i</span></span><strong id="opNgr">0.00 ₴</strong></div>
+        <div class="stat"><span>Burn Rate / спін<span class="info" data-tip="Середній дохід казино з одного спіна = GGR / Bet Count. Дозволяє прогнозувати дохід при різній інтенсивності гри.">i</span></span><strong id="opBurnRate">0.00 ₴</strong></div>
+      </div>
+
+      <div class="backendCard operator">
+        <h3>Hold % · Margin<span class="info" data-tip="Hold % = GGR / Turnover × 100. Фактична маржа казино у поточній сесії. Теоретично дорівнює House Edge (4% при RTP 96%), але на малих обсягах коливається. На 100k+ ставок — стабілізується.">i</span></h3>
+        <div class="stat"><span>Фактичний Hold</span><strong id="opHold" class="purple">0%</strong></div>
+        <div class="stat"><span>Теоретичний Hold</span><strong id="opTheoHold">4%</strong></div>
+        <div class="stat"><span>Δ Margin variance</span><strong id="opMarginDelta">0%</strong></div>
+        <div class="stat"><span>Wagering Multiplier<span class="info" data-tip="Скільки разів гравець «прокрутив» депозит. WM = Turnover / Deposit. WM < 3 — гравець обережний, > 10 — активний/лояльний. Ключова метрика для retention-команд.">i</span></span><strong id="opWageringMult">0×</strong></div>
+      </div>
+
+      <div class="panelTitle" style="margin-top:14px"><h2 class="yellow">Маркетинг · ROI</h2></div>
+
+      <div class="backendCard operator" style="border-color:rgba(255,216,77,.28);background:rgba(255,216,77,.05)">
+        <h3>FTD · First Time Deposit<span class="info" data-tip="Перший депозит гравця — момент конверсії з ліда у платника. Сума FTD визначає сегмент: <100 — low-roller, 100-500 — middle, 500+ — high-roller. За FTD маркетинг рахує CPA.">i</span></h3>
+        <div class="big yellow" id="ftdValue">—</div>
+        <div class="stat"><span>Час FTD</span><strong id="ftdTime">—</strong></div>
+        <div class="stat"><span>Депозитів усього</span><strong id="depositsCount">0</strong></div>
+        <div class="stat"><span>Середній депозит</span><strong id="avgDeposit">0.00 ₴</strong></div>
+      </div>
+
+      <div class="backendCard operator" style="border-color:rgba(255,216,77,.28);background:rgba(255,216,77,.05)">
+        <h3>CPA · LTV · ROI<span class="info" data-tip="CPA — вартість залучення гравця (виплата афіліату/реклама). LTV — прогнозований дохід з гравця. ROI = (LTV − CPA) / CPA × 100%. Якщо ROI < 0 — канал збитковий, гравець не окупається.">i</span></h3>
+        <div class="stat" style="margin-bottom:8px">
+          <span>CPA (вартість залучення)</span>
+          <input id="cpaInput" type="number" min="0" max="5000" step="10" value="200" style="width:80px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.05);color:var(--text);font-size:12px;font-weight:900;text-align:right" />
+        </div>
+        <div class="stat"><span>LTV (поточний GGR)</span><strong id="ltvCurrent" class="green">0.00 ₴</strong></div>
+        <div class="stat"><span>LTV (прогноз × 1k спінів)<span class="info" data-tip="Прогноз LTV: середній GGR за спін × 1000 спінів (типовий життєвий цикл активного гравця). Допомагає оцінити майбутню цінність гравця після перших 50-100 спінів.">i</span></span><strong id="ltvForecast" class="green">0.00 ₴</strong></div>
+        <div class="stat"><span>ROI</span><strong id="roi" class="yellow">—</strong></div>
+        <div class="stat"><span>LTV / CPA ratio<span class="info" data-tip="Якщо LTV/CPA > 3 — здоровий бізнес. 1-3 — на межі. <1 — збитково. Маркетинг-команди оптимізують канали саме за цим показником.">i</span></span><strong id="ltvCpaRatio">—</strong></div>
+        <div class="stat"><span>ARPU<span class="info" data-tip="Average Revenue Per User. У нашій моделі = GGR (бо 1 гравець). У реальних звітах — GGR / unique players за період.">i</span></span><strong id="opArpu">0.00 ₴</strong></div>
+      </div>
+
+      <div class="backendCard operator">
+        <h3>Поведінка гравця</h3>
+        <div class="statList">
+          <div class="stat"><span>Hit Frequency<span class="info" data-tip="% спінів з ненульовим виграшем. Залежить від волатильності: Low ~62%, V.High ~11%. Високий Hit Frequency = краще utain (утримання), бо гравець частіше отримує дофамінову винагороду.">i</span></span><strong id="statHitFreq">0%</strong></div>
+          <div class="stat"><span>Макс. виграш</span><strong id="statMaxWin">0.00 ₴</strong></div>
+          <div class="stat"><span>Макс. множник</span><strong id="statMaxMult">0×</strong></div>
+          <div class="stat"><span>Серія програшів</span><strong id="statLossStreak">0</strong></div>
+          <div class="stat"><span>Макс. серія</span><strong id="statMaxLossStreak">0</strong></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="footer">
+    <div>ⓘ Натисни «i» біля параметра — побачиш пояснення. Усі терміни в одному місці — у «Глосарії».</div>
+    <div class="footerActions">
+      <button class="ghost" id="monteCarloBtn">🎲 Monte Carlo · 1000 гравців</button>
+      <button class="ghost" id="glossaryBtn">📖 Глосарій метрик</button>
+      <button class="ghost" id="resetBtn">⟳ Скинути</button>
+      <button class="danger" id="endBtn">⏻ Завершити</button>
+    </div>
+  </div>
+
+  <!-- Monte Carlo Modal -->
+  <div class="modalBackdrop" id="mcModal">
+    <div class="modal">
+      <div class="modalHead">
+        <h2>🎲 Monte Carlo · симуляція 1000 гравців</h2>
+        <button class="modalClose" data-close="mcModal">×</button>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 14px">
+        Симулює N гравців, кожен з яких грає M спінів з поточними параметрами (RTP, волатильність, ставка).
+        Показує розподіл фінальних результатів — це найкраща демонстрація того, як працює закон великих чисел і House Edge на практиці.
+      </p>
+      <div class="mcRun">
+        <label>Кількість гравців
+          <input type="number" id="mcPlayers" value="1000" min="100" max="10000" step="100" />
+        </label>
+        <label>Спінів на гравця
+          <input type="number" id="mcSpins" value="200" min="20" max="2000" step="10" />
+        </label>
+      </div>
+      <button class="primary" id="mcRunBtn" style="width:100%;padding:12px;font-size:14px;margin-bottom:14px">▶ Запустити симуляцію</button>
+
+      <div id="mcResults" style="display:none">
+        <div class="mcMeta" id="mcMeta"></div>
+        <div class="mcGrid">
+          <div class="mcCard">
+            <h4>У плюсі</h4>
+            <div class="vBig green" id="mcWinners">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>У мінусі</h4>
+            <div class="vBig red" id="mcLosers">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>Збанкрутіли (баланс = 0)</h4>
+            <div class="vBig red" id="mcBankrupt">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>Середній P/L</h4>
+            <div class="vBig" id="mcMean">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>Медіанний P/L</h4>
+            <div class="vBig" id="mcMedian">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>Найкращий результат</h4>
+            <div class="vBig green" id="mcBest">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>Найгірший результат</h4>
+            <div class="vBig red" id="mcWorst">—</div>
+          </div>
+          <div class="mcCard">
+            <h4>σ (дисперсія)</h4>
+            <div class="vBig yellow" id="mcStdDev">—</div>
+          </div>
+        </div>
+
+        <h3 style="margin:14px 0 8px;color:var(--muted);font-size:11px">Розподіл P/L по гравцях</h3>
+        <div class="mcHistogram"><canvas id="mcHistCanvas" width="900" height="200"></canvas></div>
+
+        <div class="mcInsight" id="mcInsight"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glossary Modal -->
+  <div class="modalBackdrop" id="glModal">
+    <div class="modal">
+      <div class="modalHead">
+        <h2>📖 Глосарій метрик iGaming</h2>
+        <button class="modalClose" data-close="glModal">×</button>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 16px">
+        Повний словник усіх показників симулятора з формулами і поясненнями. Використовуй як reference під час навчання.
+      </p>
+
+      <div class="glossary">
+        <div class="glossSec">
+          <h3>МАТЕМАТИКА СЛОТУ</h3>
+          <div class="glossItem">
+            <strong>RTP · Return to Player</strong>
+            <p>Теоретичний відсоток ставок, що повертається гравцям у вигляді виграшів у довгостроковій перспективі (мільйони спінів). Закладається математичною моделлю слоту і сертифікується незалежними лабораторіями (eCOGRA, GLI). Стандартні значення: 94–97%, у прогресивних джекпотах — 86–92%.</p>
+            <span class="formula">RTP = Σ(виграші) / Σ(ставки) × 100%</span>
+          </div>
+          <div class="glossItem">
+            <strong>House Edge · Маржа казино</strong>
+            <p>Математична перевага казино — частка кожної ставки, яку в середньому залишає собі казино. Це «фіксована» гарантія прибутку на дистанції.</p>
+            <span class="formula">House Edge = 100% − RTP</span>
+          </div>
+          <div class="glossItem">
+            <strong>Volatility · Волатильність / Дисперсія</strong>
+            <p>Розмір і частота виграшів при тому ж RTP. <b>Low</b> — часті дрібні (Starburst), <b>High/V.High</b> — рідкісні великі (Dead or Alive 2). Гравцю з малим банкролом краще Low. Мисливцям за джекпотом — V.High.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Hit Frequency · Частота виграшів</strong>
+            <p>% спінів з ненульовим виграшем. Залежить від волатильності: Low ~62%, V.High ~11%. Високий Hit Frequency = краще retention — гравець частіше отримує дофамінову винагороду.</p>
+            <span class="formula">Hit Freq = Спіни з виграшем / Усього спінів × 100%</span>
+          </div>
+          <div class="glossItem">
+            <strong>Max Multiplier · Максимальний множник</strong>
+            <p>Найбільший виграш у множниках ставки. Стандарт для сучасних слотів: 5,000×–50,000×. Multiplier × Stake = виграш у грошах.</p>
+          </div>
+        </div>
+
+        <div class="glossSec">
+          <h3>ФІНАНСИ ОПЕРАТОРА</h3>
+          <div class="glossItem">
+            <strong>GGR · Gross Gaming Revenue</strong>
+            <p><b>Найголовніша метрика iGaming.</b> Валовий ігровий дохід — те, що залишилось у казино з усіх ставок гравця за вирахуванням виплачених виграшів. ДО податків, бонусів, ліцензійних відрахувань. У звітності публічних операторів (Entain, Flutter, Evoke) GGR — основний showcase number.</p>
+            <span class="formula">GGR = Turnover − Payouts</span>
+          </div>
+          <div class="glossItem">
+            <strong>NGR · Net Gaming Revenue</strong>
+            <p>Чистий ігровий дохід. GGR після вирахування витрат на бонуси, кешбеки, фріспіни і ліцензійні відрахування (gaming duty). У реальному житті NGR ≈ 60–80% від GGR.</p>
+            <span class="formula">NGR = GGR − Bonuses − Gaming Duty</span>
+          </div>
+          <div class="glossItem">
+            <strong>Turnover · Wagered · Оборот</strong>
+            <p>Сумарний обсяг усіх ставок гравця за період. Це НЕ дохід — це обсяг ставок. Великий Turnover не означає великий GGR, якщо гравець виграє багато.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Payouts · Виплати</strong>
+            <p>Сумарна сума всіх виграшів, отриманих гравцем. Турнівер мінус виплати = GGR.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Hold % · Margin · Маржа</strong>
+            <p>Фактичний відсоток, який казино утримало від обороту. На малій кількості спінів сильно коливається. На 100k+ ставок стабілізується і дорівнює House Edge.</p>
+            <span class="formula">Hold % = GGR / Turnover × 100%</span>
+          </div>
+          <div class="glossItem">
+            <strong>Margin Variance · Відхилення маржі</strong>
+            <p>Різниця між фактичним і теоретичним Hold %. Якщо |Δ| < 0.5% — нормальна дисперсія. Якщо > 2% — або сесія коротка, або щось не так з RNG.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Burn Rate · Швидкість «спалювання»</strong>
+            <p>Середній GGR з одного спіна. Дозволяє прогнозувати дохід при різній інтенсивності гри. Якщо знаєш середню кількість спінів на сесію, можеш одразу порахувати очікуваний дохід.</p>
+            <span class="formula">Burn Rate = GGR / Bet Count</span>
+          </div>
+        </div>
+
+        <div class="glossSec">
+          <h3>МАРКЕТИНГ І ROI</h3>
+          <div class="glossItem">
+            <strong>FTD · First Time Deposit</strong>
+            <p>Перший депозит гравця — момент конверсії з ліда у платника. Ключова метрика всього acquisition. За FTD афіліатам/рекламним каналам платять CPA. Сегментація: <100 — low-roller, 100-500 — middle, 500+ — high-roller / VIP.</p>
+          </div>
+          <div class="glossItem">
+            <strong>CPA · Cost Per Acquisition</strong>
+            <p>Вартість залучення одного платника. Виплачується афіліатам або витрачається на рекламу. Залежно від ринку: 50–500€ за FTD. У дорогих ринках (UK, Швеція) — до 1000€.</p>
+          </div>
+          <div class="glossItem">
+            <strong>LTV · Lifetime Value</strong>
+            <p>Сумарний GGR з гравця за весь час його активності. Поточний LTV = накопичений GGR. Прогнозований LTV = середній GGR за спін × очікувана кількість спінів у «житті» гравця (1000–5000).</p>
+          </div>
+          <div class="glossItem">
+            <strong>ROI · Return on Investment</strong>
+            <p>Рентабельність інвестиції в гравця. Якщо ROI > 0% — гравець окупив CPA. Якщо < 0% — канал збитковий.</p>
+            <span class="formula">ROI = (LTV − CPA) / CPA × 100%</span>
+          </div>
+          <div class="glossItem">
+            <strong>LTV/CPA Ratio</strong>
+            <p>Універсальний показник здоров'я acquisition-каналу. <b>≥ 3×</b> — здоровий бізнес, <b>1-3×</b> — на межі, <b>&lt; 1×</b> — збитково. У зрілих iGaming-операторах цільовий показник 3-5×.</p>
+          </div>
+          <div class="glossItem">
+            <strong>ARPU · Average Revenue Per User</strong>
+            <p>Середній дохід з гравця за період. У звітах оператора — GGR за період / Active Players.</p>
+            <span class="formula">ARPU = GGR / Active Players</span>
+          </div>
+          <div class="glossItem">
+            <strong>Wagering Multiplier · Коефіцієнт прокрутки</strong>
+            <p>Скільки разів гравець «прокрутив» свій депозит у ставках. WM &lt; 3 — обережний/одноразовий, 3-10 — активний, &gt; 10 — лоялний/«залежний». Ключова метрика retention-команди.</p>
+            <span class="formula">WM = Turnover / Total Deposits</span>
+          </div>
+        </div>
+
+        <div class="glossSec">
+          <h3>ПОВЕДІНКА ГРАВЦЯ</h3>
+          <div class="glossItem">
+            <strong>Bankroll Management</strong>
+            <p>Управління грошима. Загальне правило: ставка ≈ 0.5–1% від депозиту для довгої сесії. Ставка 5% і вище = висока ймовірність зливу за кілька десятків спінів.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Loss Streak · Серія програшів</strong>
+            <p>Кількість підряд програних спінів. При V.High волатильності серії 20+ — нормальне явище. Психологічно складно витримати — це момент, коли гравець збільшує ставку або депонує знову (tilt).</p>
+          </div>
+          <div class="glossItem">
+            <strong>Net P/L · Net Profit/Loss</strong>
+            <p>Чистий результат гравця: поточний баланс мінус усі депозити. Якщо позитивний — гравець у плюсі (на цей момент).</p>
+            <span class="formula">Net P/L = Balance − Total Deposits</span>
+          </div>
+        </div>
+
+        <div class="glossSec">
+          <h3>СИМУЛЯЦІЯ І СТАТИСТИКА</h3>
+          <div class="glossItem">
+            <strong>Monte Carlo Simulation</strong>
+            <p>Метод чисельного моделювання: запускаємо багато симуляцій з тими самими параметрами і дивимось розподіл результатів. У iGaming використовується для перевірки математики слотів, прогнозу LTV, ризик-аналізу.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Law of Large Numbers · Закон великих чисел</strong>
+            <p>На малій вибірці фактичний RTP сильно коливається (можна побачити 200% або 30%). При збільшенні кількості спінів фактичний RTP сходиться до теоретичного. Це математична основа всього iGaming.</p>
+          </div>
+          <div class="glossItem">
+            <strong>Standard Deviation · σ · Дисперсія</strong>
+            <p>Міра розкиду результатів. Чим вища σ — тим непередбачуваніша гра. У V.High слотах σ велика — деякі гравці отримують х500 виграш, інші зливають у нуль.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const $ = id => document.getElementById(id);
+const money = n => Math.round((Number(n) + Number.EPSILON) * 100) / 100;
+const fmt = n => `${money(n).toFixed(2)} ₴`;
+const pct = n => `${n.toFixed(2)}%`;
+const clamp = (n,min,max) => Math.max(min, Math.min(max, n));
+
+const state = {
+  rtp:96,
+  autoCount:100,
+  volatility:'medium',
+  stake:1,
+  speed:2,
+  autoRunning:false,
+  totalDeposited:0,
+  playerBalance:0,
+  casinoBalance:0,
+  spins:0,
+  wagered:0,
+  won:0,
+  maxWin:0,
+  maxMult:0,
+  hits:0,
+  lossStreak:0,
+  maxLossStreak:0,
+  balances:[0],
+  spinResults:[],
+  rtpHistory:[],
+  history:[],
+  // Marketing / business metrics
+  ftd:0,                 // First Time Deposit amount
+  ftdAt:null,            // Timestamp of FTD
+  depositsCount:0,       // Number of deposits made
+  cpa:200,               // Cost Per Acquisition (configurable)
+  bonusCost:0,           // Bonus money paid out (not used yet, placeholder for NGR)
+  sessionStart:Date.now()
+};
+
+const volatility = {
+  low:{label:'Low', hit:.62, max:1.8, big:.006},
+  medium:{label:'Medium', hit:.38, max:4.2, big:.025},
+  high:{label:'High', hit:.22, max:10, big:.06},
+  veryHigh:{label:'Very High', hit:.11, max:28, big:.12}
+};
+
+function setActive(container, value){
+  [...container.querySelectorAll('button')].forEach(btn => btn.classList.toggle('active', btn.dataset.val == value));
+}
+
+function spinReels(){
+  const symbols = ['🍒','🍋','🍇','🍉','⭐','🔔','💎','7️⃣'];
+  for(let i=1;i<=5;i++){
+    const reel = $('reel'+i);
+    reel.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    reel.classList.remove('spin');
+    void reel.offsetWidth;
+    reel.classList.add('spin');
+  }
+}
+
+function showToast(message){
+  const toast = $('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => toast.classList.remove('show'), 2400);
+}
+
+function syncCasino(){
+  state.casinoBalance = money(Math.max(0, state.totalDeposited - state.playerBalance));
+}
+
+function addDeposit(amount){
+  amount = money(Number(amount));
+  if(!amount || amount <= 0){ showToast('Введи суму депозиту більше 0.'); return; }
+  if(amount > 10000){ amount = 10000; $('depositAmount').value = 10000; showToast('Максимум — 10000₴.'); }
+  // Track FTD (First Time Deposit) — це момент конверсії маркетингу в реальний дохід
+  if(state.depositsCount === 0){
+    state.ftd = amount;
+    state.ftdAt = Date.now();
+  }
+  state.depositsCount += 1;
+  state.totalDeposited = money(state.totalDeposited + amount);
+  state.playerBalance = money(state.playerBalance + amount);
+  syncCasino();
+  state.balances.push(state.playerBalance);
+  render();
+  showToast(`Депозит +${fmt(amount)}${state.depositsCount === 1 ? ' (FTD!)' : ''}.`);
+}
+
+function getWinAmount(){
+  const cfg = volatility[state.volatility];
+  const targetReturn = state.rtp / 100;
+  if(Math.random() > cfg.hit) return 0;
+  const isBigWin = Math.random() < cfg.big;
+  const averageMultiplier = targetReturn / cfg.hit;
+  const varianceFactor = isBigWin
+    ? cfg.max * (.65 + Math.random() * 1.55)
+    : .22 + Math.random() * averageMultiplier * 1.55;
+  const multiplier = clamp(varianceFactor, .1, cfg.max);
+  return Math.round(state.stake * multiplier * 10) / 10;
+}
+
+function showSpinError(message){
+  const el = $('spinError');
+  el.textContent = `⚠ ${message}`;
+  el.classList.remove('show');
+  void el.offsetWidth;
+  el.classList.add('show');
+  clearTimeout(showSpinError.timer);
+  showSpinError.timer = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function canSpin(){
+  if(money(state.playerBalance) < money(state.stake)){
+    stopAuto();
+    showSpinError('Баланс недостатній. Поповни депозит, щоб зіграти.');
+    return false;
+  }
+  return true;
+}
+
+function doSpin(){
+  if(!canSpin()) return false;
+  spinReels();
+  const stake = state.stake;
+  const win = getWinAmount();
+  const net = win - stake;
+  const mult = stake > 0 ? win / stake : 0;
+
+  state.playerBalance = money(state.playerBalance + net);
+  syncCasino();
+  state.spins += 1;
+  state.wagered += stake;
+  state.won += win;
+  state.maxWin = Math.max(state.maxWin, win);
+  state.maxMult = Math.max(state.maxMult, mult);
+  if(win > 0) state.hits += 1;
+
+  if(net < 0){
+    state.lossStreak += 1;
+    state.maxLossStreak = Math.max(state.maxLossStreak, state.lossStreak);
+  } else {
+    state.lossStreak = 0;
+  }
+
+  state.spinResults.push(net);
+  if(state.spinResults.length > 12) state.spinResults.shift();
+  state.balances.push(state.playerBalance);
+  state.rtpHistory.push((state.won / state.wagered) * 100);
+  if(state.rtpHistory.length > 2000) state.rtpHistory.shift();
+  state.history.unshift({n:state.spins, stake, win, net, balance:state.playerBalance});
+  if(state.history.length > 80) state.history.pop();
+
+  render();
+  return true;
+}
+
+function render(){
+  const wagered = state.wagered;
+  const ggr = wagered - state.won;
+  const actualRtp = wagered ? state.won / wagered * 100 : 0;
+  const actualHold = wagered ? ggr / wagered * 100 : 0;
+  const theoHold = 100 - state.rtp;
+  const hitFreq = state.spins ? state.hits / state.spins * 100 : 0;
+  const playerNet = state.playerBalance - state.totalDeposited;
+
+  // Left panel
+  $('rtpOut').textContent = `${state.rtp}%`;
+  $('autoCountOut').textContent = state.autoCount;
+  $('volOut').textContent = volatility[state.volatility].label;
+  $('stakeOut').textContent = fmt(state.stake);
+  $('stakeVal').textContent = fmt(state.stake);
+  $('speedOut').textContent = ['Повільно','Нормально','Швидко'][state.speed - 1];
+  $('totalDepositedOut').textContent = fmt(state.totalDeposited);
+
+  // Center metrics — House Edge живо реагує на зміну RTP
+  $('houseEdge').textContent = `${100 - state.rtp}%`;
+  $('spinsDone').textContent = state.spins;
+  $('actualRtp').textContent = pct(actualRtp);
+  $('ggrTop').textContent = fmt(ggr);
+
+  // Right: player
+  $('playerDeposits').textContent = fmt(state.totalDeposited);
+  $('playerBalance').textContent = fmt(state.playerBalance);
+  $('casinoBalance').textContent = fmt(state.casinoBalance);
+  $('playerNet').textContent = fmt(playerNet);
+  $('casinoHeld').textContent = fmt(state.casinoBalance);
+  $('totalBalance').textContent = `${fmt(state.playerBalance + state.casinoBalance)} / ${fmt(state.totalDeposited)}`;
+
+  // Right: operator
+  $('ggrValue').textContent = fmt(ggr);
+  $('opBetCount').textContent = state.spins;
+  $('opWagered').textContent = fmt(state.wagered);
+  $('opWon').textContent = fmt(state.won);
+  $('opHold').textContent = pct(actualHold);
+  $('opTheoHold').textContent = pct(theoHold);
+  const delta = actualHold - theoHold;
+  $('opMarginDelta').textContent = `${delta >= 0 ? '+' : ''}${delta.toFixed(2)}%`;
+  $('opMarginDelta').className = Math.abs(delta) < .5 ? 'green' : Math.abs(delta) < 2 ? 'yellow' : 'red';
+  $('opArpu').textContent = fmt(ggr);
+
+  // NGR (без бонусів = GGR), Burn Rate, Wagering Multiplier
+  const ngr = ggr - state.bonusCost;
+  const burnRate = state.spins ? ggr / state.spins : 0;
+  const wagMult = state.totalDeposited ? state.wagered / state.totalDeposited : 0;
+  $('opNgr').textContent = fmt(ngr);
+  $('opBurnRate').textContent = fmt(burnRate);
+  $('opWageringMult').textContent = `${wagMult.toFixed(2)}×`;
+
+  // Marketing — FTD, LTV, CPA, ROI
+  const avgDeposit = state.depositsCount ? state.totalDeposited / state.depositsCount : 0;
+  $('ftdValue').textContent = state.ftd ? fmt(state.ftd) : '—';
+  $('ftdTime').textContent = state.ftdAt ? new Date(state.ftdAt).toLocaleTimeString('uk-UA',{hour:'2-digit',minute:'2-digit',second:'2-digit'}) : '—';
+  $('depositsCount').textContent = state.depositsCount;
+  $('avgDeposit').textContent = fmt(avgDeposit);
+
+  const ltvCurrent = ggr;                              // вже зароблений GGR з гравця
+  const ltvForecast = state.spins ? burnRate * 1000 : 0; // прогноз на 1000 спінів
+  const cpa = state.cpa;
+  // ROI рахуємо за поточним LTV (а не прогнозом — це чесніше)
+  const roi = cpa > 0 ? ((ltvCurrent - cpa) / cpa) * 100 : 0;
+  const ltvCpa = cpa > 0 ? ltvCurrent / cpa : 0;
+
+  $('ltvCurrent').textContent = fmt(ltvCurrent);
+  $('ltvForecast').textContent = fmt(ltvForecast);
+  if(state.depositsCount === 0){
+    $('roi').textContent = '— (немає FTD)';
+    $('roi').className = 'muted';
+    $('ltvCpaRatio').textContent = '—';
+    $('ltvCpaRatio').className = 'muted';
+  } else {
+    $('roi').textContent = `${roi >= 0 ? '+' : ''}${roi.toFixed(1)}%`;
+    $('roi').className = roi >= 0 ? 'green' : 'red';
+    $('ltvCpaRatio').textContent = `${ltvCpa.toFixed(2)}×`;
+    $('ltvCpaRatio').className = ltvCpa >= 3 ? 'green' : ltvCpa >= 1 ? 'yellow' : 'red';
+  }
+
+  // Right: session stats
+  $('statHitFreq').textContent = pct(hitFreq);
+  $('statMaxWin').textContent = fmt(state.maxWin);
+  $('statMaxMult').textContent = `${state.maxMult.toFixed(1)}×`;
+  $('statLossStreak').textContent = state.lossStreak;
+  $('statMaxLossStreak').textContent = state.maxLossStreak;
+
+  $('lastSpins').innerHTML = state.spinResults.map(v => `<span class="chip ${v >= 0 ? 'win' : 'loss'}">${v >= 0 ? '+' : ''}${v.toFixed(1)} ₴</span>`).join('');
+  $('historyBody').innerHTML = state.history.slice(0,10).map(row => `
+    <tr>
+      <td>${row.n}</td>
+      <td>${fmt(row.stake)}</td>
+      <td>${fmt(row.win)}</td>
+      <td class="${row.net >= 0 ? 'green' : 'red'}">${row.net >= 0 ? 'Виграш' : 'Програш'}</td>
+      <td class="${row.balance >= state.totalDeposited ? 'green' : 'red'}">${fmt(row.balance)}</td>
+    </tr>
+  `).join('');
+
+  const mode = $('chartMode').value;
+  $('chartTitle').textContent = mode === 'line' ? 'Баланс гравця'
+                              : mode === 'bars' ? 'Останні спіни'
+                              : 'Збіжність RTP — закон великих чисел';
+
+  drawChart();
+}
+
+function fitCanvas(){
+  const canvas = $('chart');
+  const wrap = canvas.parentElement;
+  const dpr = window.devicePixelRatio || 1;
+  const w = wrap.clientWidth || 600;
+  const h = wrap.clientHeight || 280;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  return {ctx: canvas.getContext('2d'), w: canvas.width, h: canvas.height, dpr};
+}
+
+function drawChart(){
+  const {ctx, w, h} = fitCanvas();
+  ctx.clearRect(0,0,w,h);
+
+  const pad = 42;
+  const width = w - pad * 2;
+  const height = h - pad * 2;
+  drawGrid(ctx, pad, width, height);
+
+  const mode = $('chartMode').value;
+  if(mode === 'bars') return drawBars(ctx, pad, width, height);
+  if(mode === 'convergence') return drawConvergence(ctx, pad, width, height, w);
+  drawBalance(ctx, pad, width, height, w);
+}
+
+function drawBalance(ctx, pad, width, height, w){
+  const data = state.balances;
+  const start = Math.max(0, state.totalDeposited);
+  const lastWindow = data.slice(Math.max(0, data.length - 220));
+  const visible = lastWindow.length > 1 ? lastWindow : data;
+  const min = Math.min(...visible, 0);
+  const max = Math.max(...visible, start, state.stake * 8, 10);
+  const range = max - min || 1;
+  const yFor = v => pad + height - ((v - min) / range) * height;
+  const startY = yFor(start);
+
+  ctx.strokeStyle = 'rgba(255,255,255,.18)';
+  ctx.setLineDash([6,6]);
+  ctx.beginPath(); ctx.moveTo(pad,startY); ctx.lineTo(w-pad,startY); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.beginPath();
+  visible.forEach((v,i) => {
+    const x = pad + (i / Math.max(1, visible.length - 1)) * width;
+    const y = yFor(v);
+    if(i === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  const grad = ctx.createLinearGradient(0,0,w,0);
+  grad.addColorStop(0,'#00ff88'); grad.addColorStop(1,'#23b7ff');
+  ctx.strokeStyle = grad; ctx.lineWidth = 3.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.shadowColor = '#00ff88'; ctx.shadowBlur = 14; ctx.stroke(); ctx.shadowBlur = 0;
+
+  const last = visible[visible.length - 1];
+  ctx.beginPath(); ctx.arc(pad+width, yFor(last), 6, 0, Math.PI*2);
+  ctx.fillStyle = '#00ff88'; ctx.fill();
+
+  ctx.fillStyle = 'rgba(255,255,255,.62)';
+  ctx.font = '13px Inter';
+  if(state.totalDeposited > 0) ctx.fillText('Стартова лінія депозиту', pad + 8, startY - 8);
+}
+
+function drawConvergence(ctx, pad, width, height, w){
+  const data = state.rtpHistory;
+  const target = state.rtp;
+  let yMin = target - 25;
+  let yMax = target + 25;
+  if(data.length){
+    yMax = Math.max(yMax, Math.max(...data, target) + 5);
+    yMin = Math.min(yMin, Math.min(...data, target) - 5);
+  }
+  yMin = Math.max(0, yMin);
+  const range = yMax - yMin || 1;
+  const yFor = v => pad + height - ((v - yMin) / range) * height;
+
+  ctx.fillStyle = 'rgba(255,255,255,.5)';
+  ctx.font = '11px Inter';
+  for(let i = 0; i <= 5; i++){
+    const v = yMin + (range * i / 5);
+    const y = pad + height - (height * i / 5);
+    ctx.fillText(`${v.toFixed(0)}%`, 6, y + 3);
+  }
+
+  const ty = yFor(target);
+  ctx.strokeStyle = 'rgba(0,255,136,.65)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8,6]);
+  ctx.beginPath(); ctx.moveTo(pad, ty); ctx.lineTo(pad+width, ty); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#00ff88';
+  ctx.font = '12px Inter';
+  ctx.fillText(`Теоретичний RTP ${target}%`, pad + 8, ty - 6);
+
+  if(!data.length){
+    ctx.fillStyle = 'rgba(255,255,255,.4)';
+    ctx.font = '14px Inter';
+    ctx.fillText('Запусти autospin 500+ — побачиш збіжність', pad + 10, pad + height/2);
+    return;
+  }
+
+  ctx.beginPath();
+  data.forEach((v,i) => {
+    const x = pad + (i / Math.max(1, data.length - 1)) * width;
+    const y = yFor(v);
+    if(i === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#ffd84d';
+  ctx.lineWidth = 2.5;
+  ctx.lineJoin = 'round';
+  ctx.shadowColor = '#ffd84d';
+  ctx.shadowBlur = 8;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  const last = data[data.length - 1];
+  ctx.beginPath(); ctx.arc(pad+width, yFor(last), 5, 0, Math.PI*2);
+  ctx.fillStyle = '#ffd84d'; ctx.fill();
+
+  ctx.fillStyle = '#ffd84d';
+  ctx.font = 'bold 13px Inter';
+  ctx.fillText(`${last.toFixed(2)}%`, pad + width - 56, yFor(last) - 10);
+
+  ctx.fillStyle = 'rgba(255,255,255,.55)';
+  ctx.font = '11px Inter';
+  ctx.fillText(`Спінів: ${state.spins}`, pad + 8, pad + 14);
+}
+
+function drawGrid(ctx, pad, width, height){
+  ctx.strokeStyle = 'rgba(255,255,255,.07)';
+  ctx.lineWidth = 1;
+  for(let i=0;i<6;i++){ const y = pad + i*height/5; ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(pad+width,y); ctx.stroke(); }
+  for(let i=0;i<9;i++){ const x = pad + i*width/8; ctx.beginPath(); ctx.moveTo(x,pad); ctx.lineTo(x,pad+height); ctx.stroke(); }
+}
+
+function drawBars(ctx, pad, width, height){
+  const data = state.spinResults;
+  if(!data.length) return;
+  const maxAbs = Math.max(...data.map(Math.abs), 1);
+  const zero = pad + height / 2;
+  const barW = width / data.length * .65;
+  data.forEach((v,i) => {
+    const x = pad + i * (width / data.length) + barW * .25;
+    const barH = Math.abs(v) / maxAbs * (height * .42);
+    ctx.fillStyle = v >= 0 ? 'rgba(0,255,136,.85)' : 'rgba(255,77,87,.85)';
+    ctx.fillRect(x, v >= 0 ? zero - barH : zero, barW, barH);
+  });
+  ctx.strokeStyle = 'rgba(255,255,255,.18)';
+  ctx.beginPath(); ctx.moveTo(pad,zero); ctx.lineTo(pad+width,zero); ctx.stroke();
+}
+
+function reset(){
+  stopAuto();
+  Object.assign(state, {
+    totalDeposited:0, playerBalance:0, casinoBalance:0,
+    spins:0, wagered:0, won:0, maxWin:0, maxMult:0, hits:0,
+    lossStreak:0, maxLossStreak:0,
+    balances:[0], spinResults:[], rtpHistory:[], history:[],
+    ftd:0, ftdAt:null, depositsCount:0, bonusCost:0,
+    sessionStart: Date.now()
+  });
+  render();
+}
+
+function stopAuto(){ state.autoRunning = false; $('autoBtn').textContent = '⏱ AUTOSPIN'; }
+
+function autoSpin(){
+  if(state.autoRunning) return stopAuto();
+  if(!canSpin()) return;
+  state.autoRunning = true;
+  $('autoBtn').textContent = '⏸ STOP';
+  let left = state.autoCount;
+  const delay = state.speed === 1 ? 350 : state.speed === 2 ? 90 : 20;
+  const loop = () => {
+    if(!state.autoRunning || left <= 0) return stopAuto();
+    if(!doSpin()) return;
+    left--;
+    setTimeout(loop, delay);
+  };
+  loop();
+}
+
+// Event bindings
+$('depositBtn').onclick = () => addDeposit($('depositAmount').value);
+document.querySelectorAll('[data-dep]').forEach(btn => btn.onclick = () => addDeposit(btn.dataset.dep));
+$('rtp').addEventListener('input', e => { state.rtp = +e.target.value; render(); });
+$('speed').addEventListener('input', e => { state.speed = +e.target.value; render(); });
+$('stakeMinus').onclick = () => { state.stake = money(Math.max(.1, state.stake - .5)); render(); };
+$('stakePlus').onclick = () => { state.stake = money(state.stake + .5); render(); };
+$('spinBtn').onclick = doSpin;
+$('autoBtn').onclick = autoSpin;
+$('resetBtn').onclick = reset;
+$('endBtn').onclick = reset;
+$('chartMode').onchange = () => { render(); };
+$('autoCounts').onclick = e => { if(e.target.dataset.val){ state.autoCount = +e.target.dataset.val; setActive($('autoCounts'), state.autoCount); render(); }};
+$('volBtns').onclick = e => { if(e.target.dataset.val){ state.volatility = e.target.dataset.val; setActive($('volBtns'), state.volatility); render(); }};
+$('cpaInput').addEventListener('input', e => { state.cpa = Math.max(0, +e.target.value || 0); render(); });
+
+// ============= MODALS =============
+function openModal(id){ $(id).classList.add('show'); }
+function closeModal(id){ $(id).classList.remove('show'); }
+$('monteCarloBtn').onclick = () => openModal('mcModal');
+$('glossaryBtn').onclick = () => openModal('glModal');
+document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => closeModal(b.dataset.close));
+document.querySelectorAll('.modalBackdrop').forEach(bd => bd.addEventListener('click', e => { if(e.target === bd) bd.classList.remove('show'); }));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modalBackdrop.show').forEach(m => m.classList.remove('show')); });
+
+// ============= MONTE CARLO SIMULATION =============
+function simulateOnePlayer(initialBankroll, spinsToPlay){
+  const cfg = volatility[state.volatility];
+  const targetReturn = state.rtp / 100;
+  const hitChance = cfg.hit;
+  let balance = initialBankroll;
+  let wagered = 0, won = 0, wins = 0, spinsPlayed = 0;
+  let maxBalance = initialBankroll, minBalance = initialBankroll;
+  let bankrupt = false;
+
+  for(let i=0; i<spinsToPlay; i++){
+    if(balance < state.stake){ bankrupt = true; break; }
+    balance -= state.stake;
+    wagered += state.stake;
+
+    let win = 0;
+    if(Math.random() <= hitChance){
+      const isBig = Math.random() < cfg.big;
+      const avgMult = targetReturn / hitChance;
+      const vf = isBig ? cfg.max * (.65 + Math.random() * 1.55)
+                       : .22 + Math.random() * avgMult * 1.55;
+      const mult = clamp(vf, .1, cfg.max);
+      win = state.stake * mult;
+      wins++;
+    }
+    balance += win;
+    won += win;
+    spinsPlayed++;
+    if(balance > maxBalance) maxBalance = balance;
+    if(balance < minBalance) minBalance = balance;
+  }
+  return {
+    finalBalance: balance,
+    pnl: balance - initialBankroll,
+    wagered, won, wins, spinsPlayed, maxBalance, minBalance, bankrupt
+  };
+}
+
+function runMonteCarlo(){
+  const players = clamp(+$('mcPlayers').value || 1000, 100, 10000);
+  const spinsPerPlayer = clamp(+$('mcSpins').value || 200, 20, 2000);
+  // Початковий банкрол = достатній для проходження всіх спінів без банкрутства при середньому раунді
+  const bankroll = state.stake * spinsPerPlayer;
+  const results = [];
+
+  const btn = $('mcRunBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Симуляція…';
+
+  // Затримуємо запуск на 50мс, щоб UI встиг оновитись
+  setTimeout(() => {
+    const t0 = performance.now();
+    for(let i=0; i<players; i++){
+      results.push(simulateOnePlayer(bankroll, spinsPerPlayer));
+    }
+    const elapsed = performance.now() - t0;
+    renderMonteCarlo(results, players, spinsPerPlayer, bankroll, elapsed);
+    btn.disabled = false;
+    btn.textContent = '▶ Запустити симуляцію';
+  }, 50);
+}
+
+function renderMonteCarlo(results, players, spinsPerPlayer, bankroll, elapsed){
+  const pnls = results.map(r => r.pnl);
+  const totalWagered = results.reduce((s,r) => s + r.wagered, 0);
+  const totalWon = results.reduce((s,r) => s + r.won, 0);
+  const ggrTotal = totalWagered - totalWon;
+  const actualRtp = totalWagered ? totalWon / totalWagered * 100 : 0;
+
+  const winners = results.filter(r => r.pnl > 0).length;
+  const losers = results.filter(r => r.pnl < 0).length;
+  const bankrupt = results.filter(r => r.bankrupt).length;
+
+  const mean = pnls.reduce((s,v) => s+v, 0) / players;
+  const sorted = [...pnls].sort((a,b) => a-b);
+  const median = sorted[Math.floor(players/2)];
+  const best = Math.max(...pnls);
+  const worst = Math.min(...pnls);
+  const variance = pnls.reduce((s,v) => s + (v-mean)**2, 0) / players;
+  const stdDev = Math.sqrt(variance);
+
+  // Meta strip
+  $('mcMeta').innerHTML = `
+    <div class="miniStat"><span>Параметри</span><strong>RTP ${state.rtp}% · ${volatility[state.volatility].label}</strong></div>
+    <div class="miniStat"><span>Ставка</span><strong>${fmt(state.stake)}</strong></div>
+    <div class="miniStat"><span>Банкрол / гравець</span><strong>${fmt(bankroll)}</strong></div>
+    <div class="miniStat"><span>Усього спінів</span><strong>${(players*spinsPerPlayer).toLocaleString('uk-UA')}</strong></div>
+    <div class="miniStat"><span>Сумарний GGR казино</span><strong style="color:var(--blue)">${fmt(ggrTotal)}</strong></div>
+    <div class="miniStat"><span>Фактичний RTP</span><strong style="color:var(--yellow)">${pct(actualRtp)}</strong></div>
+    <div class="miniStat"><span>Час обчислення</span><strong>${elapsed.toFixed(0)} мс</strong></div>
+  `;
+
+  $('mcWinners').textContent = `${winners} · ${(winners/players*100).toFixed(1)}%`;
+  $('mcLosers').textContent = `${losers} · ${(losers/players*100).toFixed(1)}%`;
+  $('mcBankrupt').textContent = `${bankrupt} · ${(bankrupt/players*100).toFixed(1)}%`;
+  $('mcMean').textContent = fmt(mean);
+  $('mcMean').className = `vBig ${mean >= 0 ? 'green' : 'red'}`;
+  $('mcMedian').textContent = fmt(median);
+  $('mcMedian').className = `vBig ${median >= 0 ? 'green' : 'red'}`;
+  $('mcBest').textContent = `+${fmt(best)}`;
+  $('mcWorst').textContent = fmt(worst);
+  $('mcStdDev').textContent = `±${fmt(stdDev)}`;
+
+  // Insight
+  const houseTake = (1 - state.rtp/100) * bankroll;
+  $('mcInsight').innerHTML = `
+    <strong>💡 Висновок:</strong> при RTP <b>${state.rtp}%</b>, ставці <b>${fmt(state.stake)}</b> і <b>${spinsPerPlayer}</b> спінах
+    очікувані втрати кожного гравця ≈ <b>${fmt(houseTake)}</b> (House Edge × Turnover).
+    Однак через дисперсію <b style="color:var(--green)">${(winners/players*100).toFixed(1)}%</b> гравців
+    усе одно виходять у плюс — це і створює ілюзію «можна виграти». На дистанції казино гарантовано забирає
+    свої <b style="color:var(--blue)">${fmt(ggrTotal)}</b> з усіх гравців разом (${pct(100-actualRtp)} від обороту).
+  `;
+
+  // Спочатку показуємо блок результатів, щоб контейнер гістограми отримав реальні розміри,
+  // а ТІЛЬКИ ПОТІМ малюємо — інакше canvas вийде нульового розміру (особливо на мобільному).
+  $('mcResults').style.display = 'block';
+  requestAnimationFrame(() => drawHistogram(pnls));
+}
+
+let lastHistogramData = null;
+function drawHistogram(pnls){
+  if(pnls) lastHistogramData = pnls;
+  const data = pnls || lastHistogramData;
+  if(!data || !data.length) return;
+
+  const canvas = $('mcHistCanvas');
+  // Реальні розміри canvas відносно CSS-боксу. clientWidth/Height у .mcHistogram canvas == 100% контейнера.
+  const cssW = canvas.clientWidth;
+  const cssH = canvas.clientHeight;
+  if(cssW < 50 || cssH < 50) return; // контейнер ще не отримав розмір
+
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = cssW * dpr;
+  canvas.height = cssH * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0,0,cssW,cssH);
+
+  // Кількість бінів: менше на вузьких екранах
+  const bins = cssW < 420 ? 18 : 30;
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+  const counts = new Array(bins).fill(0);
+  data.forEach(v => {
+    const idx = Math.min(bins-1, Math.floor((v - min) / range * bins));
+    counts[idx]++;
+  });
+  const maxCount = Math.max(...counts);
+
+  const padL = 8, padR = 8, padT = 12, padB = 22;
+  const chartW = cssW - padL - padR;
+  const chartH = cssH - padT - padB;
+  const barW = chartW / bins;
+
+  // Нульова лінія
+  if(min < 0 && max > 0){
+    const zeroFrac = (-min) / range;
+    const zeroX = padL + zeroFrac * chartW;
+    ctx.strokeStyle = 'rgba(255,255,255,.3)';
+    ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(zeroX, padT); ctx.lineTo(zeroX, padT + chartH); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(255,255,255,.55)';
+    ctx.font = '10px Inter';
+    ctx.fillText('0', zeroX - 4, padT + chartH + 14);
+  }
+
+  // Бари
+  counts.forEach((c,i) => {
+    const binStart = min + (i/bins)*range;
+    const x = padL + i*barW;
+    const barH = maxCount > 0 ? (c / maxCount) * (chartH - 4) : 0;
+    const y = padT + chartH - barH;
+    ctx.fillStyle = binStart >= 0 ? 'rgba(0,255,136,.82)' : 'rgba(255,77,87,.82)';
+    ctx.fillRect(x + .5, y, Math.max(1, barW - 1), barH);
+  });
+
+  // Підписи країв
+  ctx.fillStyle = 'rgba(255,255,255,.6)';
+  ctx.font = '10px Inter';
+  ctx.fillText(`${min.toFixed(0)} ₴`, padL, cssH - 4);
+  const maxLabel = `${max.toFixed(0)} ₴`;
+  const maxW = ctx.measureText(maxLabel).width;
+  ctx.fillText(maxLabel, cssW - padR - maxW, cssH - 4);
+}
+
+window.addEventListener('resize', () => { if($('mcModal').classList.contains('show')) drawHistogram(); });
+
+$('mcRunBtn').onclick = runMonteCarlo;
+
+window.addEventListener('resize', () => drawChart());
+render();
+</script>
+</body>
+</html>
